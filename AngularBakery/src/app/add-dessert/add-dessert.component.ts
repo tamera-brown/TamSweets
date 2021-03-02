@@ -10,8 +10,9 @@ import { Dessert } from '../dessert';
 })
 export class AddDessertComponent implements OnInit {
 
+  dessertId:number;
   name: string;
-  Description : string;
+  description : string;
   price: number;
 
   constructor(private service : BakeryService, private router: Router) { }
@@ -20,8 +21,8 @@ export class AddDessertComponent implements OnInit {
   }
 
   addDessert(){
-    let toAdd : Dessert = {name: this.name, Description: this.Description,price:this.price}
-     this.service.addDessert(toAdd).subscribe((_) => {this.router.navigate([""])});
+    let toAdd : Dessert = {dessertId:1,name: this.name, description: this.description,price:this.price}
+     this.service.addDessert(toAdd).subscribe((_) => {this.router.navigate(['desserts'])});
   }
 
 }
