@@ -3,7 +3,7 @@
         <form [formGroup]="dessertForm" (ngSubmit)="onSubmit()">
             <h2>Add Dessert</h2>
             <div class="form-group">  
-                <label for="name"class="col-md-4"> Product Name</label>  
+                <label for="name"class="col-md-4"> Dessert Name</label>  
                 <input type="text" class="form-control" formControlName="name" placeholder="Enter Name" [(ngModel)]="name" />  
               </div>  
               <div *ngIf="dessertForm.controls['name'].invalid && (dessertForm.controls['name'].dirty || dessertForm.controls['name'].touched)"  class="alert-danger">
@@ -13,7 +13,7 @@
               </div>
 
               <div class="form-group">  
-                <label for="description"class="col-md-4">  Description</label>  
+                <label for="description"class="col-md-4"> Dessert Description</label>  
                 <textarea rows="10" cols="40" class="form-control" formControlName="description" placeholder="Enter Description" [(ngModel)]="description" > 
                 </textarea> 
               </div>  
@@ -24,7 +24,7 @@
             </div>
              
                   <div class="form-group">  
-                    <label for="price"class="col-md-4"> Product Price</label>  
+                    <label for="price"class="col-md-4"> Dessert Price</label>  
                     <input type="number" class="form-control" formControlName="price" placeholder="Enter Price" [(ngModel)]="price" />  
                   </div>  
                   <div *ngIf="dessertForm.controls['price'].invalid && (dessertForm.controls['price'].dirty || dessertForm.controls['price'].touched)"  class="alert-danger">

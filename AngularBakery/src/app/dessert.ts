@@ -3,5 +3,6 @@ export interface Dessert {
    name:string;
    description: string;
    price :number;
+   image:string;
 }
 

@@ -1,10 +1,10 @@
 <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="" alt="Card image cap">
+    <img class="card-img-top" src={{dessert.image}} alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{dessert.name}}</h5>
       <p class="card-text">{{dessert.description}}</p>
-      <button (click)="deletDessert(dessert.dessertId)">Delete Dessert</button>
-      <button [routerLink]="['/editDessert',dessert.dessertId]">Edit Dessert</button>
+      <button (click)="deletDessert(dessert.dessertId)" class="btn btn-danger">Delete Dessert</button>
+      <button [routerLink]="['/editDessert',dessert.dessertId]" class="btn btn-warning">Edit Dessert</button>
      
     </div>
   </div>

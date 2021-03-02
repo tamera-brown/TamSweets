@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BakeryService } from '../bakery.service';
-import {FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
+import { Dessert } from '../dessert';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,29 +12,34 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class EditDessertComponent implements OnInit {
 
-  name = new FormControl('', [Validators.required]);
-  description = new FormControl('', [Validators.required]);
-  price = new FormControl('', [Validators.required]);
+  @Input() dessert:Dessert;
+  // dessertId:number;
+  name: string;
+  description : string;
+  price: number;
+  isSubmitted=false;
 
-  getErrorMessage() {
-    if (this.name.hasError('required')) {
-      return 'You must enter a value';
-    }
-    if (this.description.hasError('required')) {
-      return 'You must enter a value';
-    }
-    if (this.price.hasError('required')) {
-      return 'You must enter a value';
-    }
+  constructor(private fb : FormBuilder, private service: BakeryService, private router:Router) { }
+  editForm=this.fb.group({
 
-    return this.name.hasError('name') ? 'Not a valid name' : '';
-   
-  }
-  constructor() { }
+    name:['',Validators.required],
+    description:['',Validators.required],
+    price:['',Validators.required]
 
+
+  });
   ngOnInit(): void {
   }
+  onSubmit(){
+    this.isSubmitted=true;
+    alert("Dessert edited");
+  }
+ 
+editDessert(toedit){
+toedit={name:this.name,description:this.description,price:this.price}
+this.service.editDessert(toedit).subscribe((_=>{this.router.navigate(['desserts'])}));
 
+}
   
 
   

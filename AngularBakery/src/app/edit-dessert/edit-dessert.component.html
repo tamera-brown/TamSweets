@@ -1,1 +1,51 @@
-<p>edit-dessert works</p>
+<div class="mat-card">
+    <div class="mat-card-content">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+            <h2>Add Dessert</h2>
+            <div class="form-group">
+                <label for="name" class="col-md-4"> Dessert Name</label>
+                <input type="text" class="form-control" formControlName="name" placeholder="Enter Name"
+                    [(ngModel)]="name" />
+                    {{dessert.name}}
+            </div>
+            <div *ngIf="editForm.controls['name'].invalid && (editForm.controls['name'].dirty || editForm.controls['name'].touched)"
+                class="alert-danger">
+                <div *ngIf="editForm.controls['name'].errors.required">
+                    Dessert Name is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="col-md-4"> Dessert Description</label>
+                <textarea rows="10" cols="40" class="form-control" formControlName="description"
+                    placeholder="Enter Description" [(ngModel)]="description">
+                </textarea>
+            </div>
+            <div *ngIf="editForm.controls['description'].invalid && (editForm.controls['description'].dirty || editForm.controls['description'].touched)"
+                class="alert-danger">
+                <div *ngIf="editForm.controls['description'].errors.required">
+                    Dessert Description is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="price" class="col-md-4"> Dessert Price</label>
+                <input type="number" class="form-control" formControlName="price" placeholder="Enter Price"
+                    [(ngModel)]="price" />
+            </div>
+            <div *ngIf="editForm.controls['price'].invalid && (editForm.controls['price'].dirty || editForm.controls['price'].touched)"
+                class="alert-danger">
+                <div *ngIf="editForm.controls['price'].errors.required">
+                    Dessert Price is required.
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <!-- <button type="submit" class="btn btn-outline-primary"
+                    [disabled]="editForm.pristine || editForm.invalid" (click)="editDessert()">Submit</button> -->
+            </div>
+
+        </form>
+    </div>
+</div>
