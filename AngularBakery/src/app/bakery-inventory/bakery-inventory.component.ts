@@ -3,12 +3,11 @@ import { BakeryService } from '../bakery.service';
 import { Dessert } from '../dessert';
 
 @Component({
-  selector: 'app-bakery-iventory',
-  templateUrl: './bakery-iventory.component.html',
-  styleUrls: ['./bakery-iventory.component.css']
+  selector: 'app-bakery-inventory',
+  templateUrl: './bakery-inventory.component.html',
+  styleUrls: ['./bakery-inventory.component.css']
 })
-export class BakeryIventoryComponent implements OnInit {
-
+export class BakeryInventoryComponent implements OnInit {
   desserts:Dessert[];
 
   constructor(private service : BakeryService) { }
