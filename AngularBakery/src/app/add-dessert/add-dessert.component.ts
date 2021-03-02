@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 import { BakeryService } from '../bakery.service';
 import { Dessert } from '../dessert';
@@ -14,12 +15,26 @@ export class AddDessertComponent implements OnInit {
   name: string;
   description : string;
   price: number;
+  isSubmitted=false;
 
-  constructor(private service : BakeryService, private router: Router) { }
+  constructor(private fb:FormBuilder,private service : BakeryService, private router: Router) { }
+    dessertForm=this.fb.group({
+
+      name:['',Validators.required],
+      description:['',Validators.required],
+      price:['',Validators.required]
+
+
+    });
+  
 
   ngOnInit(): void {
   }
 
+  onSubmit(){
+    this.isSubmitted=true;
+    alert("Dessert Added");
+  }
   addDessert(){
     let toAdd : Dessert = {dessertId:1,name: this.name, description: this.description,price:this.price}
      this.service.addDessert(toAdd).subscribe((_) => {this.router.navigate(['desserts'])});

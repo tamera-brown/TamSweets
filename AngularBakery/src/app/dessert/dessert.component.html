@@ -1,4 +1,10 @@
-<p>{{dessert.name}} {{dessert.description}} {{dessert.price}}
-    <!-- <button (click)="deletDessert(dessert.dessertId)">Delete Dessert</button> -->
-    <button [routerLink]="['/editDessert',dessert.dessertId]">Edit Dessert</button>
-</p>
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{dessert.name}}</h5>
+      <p class="card-text">{{dessert.description}}</p>
+      <button (click)="deletDessert(dessert.dessertId)">Delete Dessert</button>
+      <button [routerLink]="['/editDessert',dessert.dessertId]">Edit Dessert</button>
+     
+    </div>
+  </div>

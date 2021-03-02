@@ -7,7 +7,7 @@ import { DessertComponent } from './dessert/dessert.component';
 import { AddDessertComponent } from './add-dessert/add-dessert.component';
 import { BakeryInventoryComponent } from './bakery-inventory/bakery-inventory.component';
 
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditDessertComponent } from './edit-dessert/edit-dessert.component';
@@ -17,6 +17,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MenuComponent } from './menu/menu.component';
+
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MenuComponent } from './menu/menu.component';
     BrowserAnimationsModule,
     MatToolbarModule, 
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
