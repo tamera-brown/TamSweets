@@ -16,12 +16,15 @@ export class BakeryService {
 getAllDesserts():Observable<Dessert[]>{
 return this.http.get<Dessert[]>(this.baseURL+"/desserts");
 }
+getDessertById(dessertId:number):Observable<Dessert>{
+  return this.http.get<Dessert>(this.baseURL+`/dessert/${dessertId}`);
+}
 addDessert(tooAdd: Dessert):Observable<Dessert>{
   console.log(tooAdd);
   return this.http.post<Dessert>(this.baseURL+ "/addDessert",tooAdd,this.httpOptions);
 }
 editDessert(toedit:Dessert):Observable<Dessert>{
-  return this.http.put<Dessert>(this.baseURL+"/editDessert/",toedit, this.httpOptions);
+  return this.http.put<Dessert>(this.baseURL+"/editDessert",toedit, this.httpOptions);
 }
 
 deleteDessert(dessertId:number){

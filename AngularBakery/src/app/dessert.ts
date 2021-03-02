@@ -1,5 +1,5 @@
 export interface Dessert {
-   dessertId:number
+   dessertId?:number
    name:string;
    description: string;
    price :number;

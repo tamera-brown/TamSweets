@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BakeryService } from '../bakery.service';
 import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import { Dessert } from '../dessert';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -12,14 +13,16 @@ import { Router } from '@angular/router';
 })
 export class EditDessertComponent implements OnInit {
 
-  @Input() dessert:Dessert;
-  // dessertId:number;
+  dessertId:number;
   name: string;
   description : string;
   price: number;
+  image:string;
   isSubmitted=false;
 
-  constructor(private fb : FormBuilder, private service: BakeryService, private router:Router) { }
+ 
+
+  constructor(private fb : FormBuilder, private service: BakeryService, private router:Router,private route:ActivatedRoute) { }
   editForm=this.fb.group({
 
     name:['',Validators.required],
@@ -29,18 +32,30 @@ export class EditDessertComponent implements OnInit {
 
   });
   ngOnInit(): void {
+    
+   
+    this.dessertId=parseInt(this.route.snapshot.paramMap.get('id'));
+
+    console.log(this.dessertId);
+
+    this.service.getDessertById(this.dessertId).subscribe(res=>{
+      this.name=res.name;
+      this.description=res.description;
+      this.price=res.price;
+      this.image=res.image;
+      
+    });
   }
   onSubmit(){
     this.isSubmitted=true;
     alert("Dessert edited");
   }
  
+ 
 editDessert(toedit){
-toedit={name:this.name,description:this.description,price:this.price}
-this.service.editDessert(toedit).subscribe((_=>{this.router.navigate(['desserts'])}));
+toedit={desserId:this.dessertId,name:this.name,description:this.description,price:this.price}
+this.service.editDessert(toedit).subscribe((_) => {this.router.navigate(['desserts'])});
 
 }
-  
-
-  
 }
+

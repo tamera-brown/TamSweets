@@ -11,7 +11,7 @@ import { Dessert } from '../dessert';
 })
 export class AddDessertComponent implements OnInit {
 
-  dessertId:number;
+
   name: string;
   description : string;
   price: number;
@@ -38,7 +38,7 @@ export class AddDessertComponent implements OnInit {
     alert("Dessert Added");
   }
   addDessert(){
-    let toAdd : Dessert = {dessertId:1,name: this.name, description: this.description,price:this.price,image:this.image}
+    let toAdd : Dessert = {name: this.name, description: this.description,price:this.price,image:this.image}
      this.service.addDessert(toAdd).subscribe((_) => {this.router.navigate(['desserts'])});
   }
 

@@ -10,7 +10,6 @@ import { Dessert } from '../dessert';
 export class DessertComponent implements OnInit {
 
   @Input() dessert:Dessert;
-  desserts:Dessert[];
   constructor(private service:BakeryService) { }
 
   ngOnInit(): void {
@@ -18,7 +17,7 @@ export class DessertComponent implements OnInit {
   
   }
   deletDessert(dessertId){
-    this.service.deleteDessert(dessertId).subscribe(res=>{this.desserts.splice(1,dessertId)});
+    this.service.deleteDessert(dessertId).subscribe();
     }
 
 }
