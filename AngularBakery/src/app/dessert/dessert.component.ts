@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BakeryService } from '../bakery.service';
 import { Dessert } from '../dessert';
 
 @Component({
@@ -9,11 +10,15 @@ import { Dessert } from '../dessert';
 export class DessertComponent implements OnInit {
 
   @Input() dessert:Dessert;
-  constructor() { }
+  desserts:Dessert[];
+  constructor(private service:BakeryService) { }
 
   ngOnInit(): void {
 
   
   }
+  deletDessert(dessertId){
+    this.service.deleteDessert(dessertId).subscribe(res=>{this.desserts.splice(1,dessertId)});
+    }
 
 }

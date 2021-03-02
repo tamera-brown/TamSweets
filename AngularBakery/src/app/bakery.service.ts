@@ -20,4 +20,12 @@ addDessert(tooAdd: Dessert):Observable<Dessert>{
   console.log(tooAdd);
   return this.http.post<Dessert>(this.baseURL+ "/addDessert",tooAdd,this.httpOptions);
 }
+editDessert(dessertId:number):Observable<Dessert>{
+  return this.http.put<Dessert>(this.baseURL+`/editDessert/${dessertId}`,this.httpOptions);
+}
+
+deleteDessert(dessertId:number){
+  console.log(dessertId);
+  return this.http.delete(this.baseURL+ `/deleteDessert/${dessertId}`);
+}
 }

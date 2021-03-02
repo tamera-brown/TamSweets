@@ -1,1 +1,4 @@
-<p>{{dessert.name}}</p>
+<p>{{dessert.name}} {{dessert.description}} {{dessert.price}}
+    <!-- <button (click)="deletDessert(dessert.dessertId)">Delete Dessert</button> -->
+    <button [routerLink]="['/editDessert',dessert.dessertId]">Edit Dessert</button>
+</p>

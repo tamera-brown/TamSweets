@@ -14,6 +14,9 @@ import { EditDessertComponent } from './edit-dessert/edit-dessert.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -26,6 +29,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     NavComponent,
     HomeComponent,
     BakeryInventoryComponent,
+    MenuComponent,
     
   ],
   imports: [
@@ -34,7 +38,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule, 
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
