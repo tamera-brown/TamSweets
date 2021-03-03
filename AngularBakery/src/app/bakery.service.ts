@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Dessert } from './dessert';
+import { Menu } from './menu';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,6 @@ getDessertById(dessertId:number):Observable<Dessert>{
   return this.http.get<Dessert>(this.baseURL+`/dessert/${dessertId}`);
 }
 addDessert(tooAdd: Dessert):Observable<Dessert>{
-  console.log(tooAdd);
   return this.http.post<Dessert>(this.baseURL+ "/addDessert",tooAdd,this.httpOptions);
 }
 editDessert(toedit:Dessert):Observable<Dessert>{
@@ -30,4 +30,9 @@ editDessert(toedit:Dessert):Observable<Dessert>{
 deleteDessert(dessertId:number){
   return this.http.delete(this.baseURL+ `/deleteDessert/${dessertId}`);
 }
+getAllMenus():Observable<Menu[]>{
+return this.http.get<Menu[]>(this.baseURL+"/menus");
+}
+
+
 }

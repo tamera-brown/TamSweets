@@ -1,8 +1,13 @@
 <mat-toolbar color="primary">
     <h2>TamSweets</h2>
   <button mat-button routerLink='/'>Home</button>
-  <button mat-button routerLink='/menus'>Menus</button>
+  <button mat-button routerLink='/menus' [matMenuTriggerFor]='appMenu'>Menus</button>
+  <mat-menu #appMenu='matMenu'>
+    <button mat-menu-item>Cake</button>
+    <button mat-menu-item>Cookies</button>
+  </mat-menu>
   <button mat-button routerLink='/desserts'>Desserts</button>
   <button mat-button routerLink='/add'>Add Dessert</button>
+  <span [matBadge]='0' matBadgeOverlap='false'><mat-icon>local_grocery_store</mat-icon></span>
   </mat-toolbar>
 

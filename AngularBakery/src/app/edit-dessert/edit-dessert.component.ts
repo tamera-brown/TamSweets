@@ -46,16 +46,11 @@ export class EditDessertComponent implements OnInit {
       
     });
   }
-  onSubmit(){
-    this.isSubmitted=true;
-    alert("Dessert edited");
-  }
  
  
 editDessert(toedit){
 toedit={desserId:this.dessertId,name:this.name,description:this.description,price:this.price}
 this.service.editDessert(toedit).subscribe((_) => {this.router.navigate(['desserts'])});
-
 }
 }
 

@@ -33,10 +33,6 @@ export class AddDessertComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    this.isSubmitted=true;
-    alert("Dessert Added");
-  }
   addDessert(){
     let toAdd : Dessert = {name: this.name, description: this.description,price:this.price,image:this.image}
      this.service.addDessert(toAdd).subscribe((_) => {this.router.navigate(['desserts'])});

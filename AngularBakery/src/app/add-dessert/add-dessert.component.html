@@ -1,43 +1,21 @@
-<div class="mat-card">
-    <div class="mat-card-content">
-        <form [formGroup]="dessertForm" (ngSubmit)="onSubmit()">
-            <h2>Add Dessert</h2>
-            <div class="form-group">  
-                <label for="name"class="col-md-4"> Dessert Name</label>  
-                <input type="text" class="form-control" formControlName="name" placeholder="Enter Name" [(ngModel)]="name" />  
-              </div>  
-              <div *ngIf="dessertForm.controls['name'].invalid && (dessertForm.controls['name'].dirty || dessertForm.controls['name'].touched)"  class="alert-danger">
-                <div *ngIf="dessertForm.controls['name'].errors.required">  
-                  Dessert Name is required.  
-                </div>  
-              </div>
+<mat-card>
 
-              <div class="form-group">  
-                <label for="description"class="col-md-4"> Dessert Description</label>  
-                <textarea rows="10" cols="40" class="form-control" formControlName="description" placeholder="Enter Description" [(ngModel)]="description" > 
-                </textarea> 
-              </div>  
-              <div *ngIf="dessertForm.controls['description'].invalid && (dessertForm.controls['description'].dirty || dessertForm.controls['description'].touched)"  class="alert-danger">
-                <div *ngIf="dessertForm.controls['description'].errors.required">  
-                  Dessert Description is required.  
-                </div>  
-            </div>
-             
-                  <div class="form-group">  
-                    <label for="price"class="col-md-4"> Dessert Price</label>  
-                    <input type="number" class="form-control" formControlName="price" placeholder="Enter Price" [(ngModel)]="price" />  
-                  </div>  
-                  <div *ngIf="dessertForm.controls['price'].invalid && (dessertForm.controls['price'].dirty || dessertForm.controls['price'].touched)"  class="alert-danger">
-                    <div *ngIf="dessertForm.controls['price'].errors.required">  
-                      Dessert Price is required.  
-                    </div>  
-                  </div>
+<mat-form-field appearance="fill" floatLbel='auto'>
+  <mat-label>Name</mat-label>
+  <input matInput type="text"[(ngModel)]="name" required>
+</mat-form-field>
+<br/>
 
-                 
-                  <div class="form-group">  
-                    <button type="submit" class="btn btn-outline-primary"  [disabled]="dessertForm.pristine || dessertForm.invalid" (click)=" addDessert()">Submit</button> 
-                    </div> 
-                    
-        </form>
-    </div>
-</div>
+<mat-form-field appearance="fill" floatLbel='auto'>
+  <mat-label>Description</mat-label>
+  <input matInput type="text"[(ngModel)]="description" required>
+</mat-form-field>
+<br/>
+
+<mat-form-field appearance="fill" floatLbel='auto'>
+  <mat-label>Price</mat-label>
+  <input matInput type="text"[(ngModel)]="price" required>
+</mat-form-field>
+<br/>
+<button mat-raised-button color="primary" (click)="addDessert()">Submit</button>
+</mat-card>
