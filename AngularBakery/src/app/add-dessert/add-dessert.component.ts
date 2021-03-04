@@ -1,7 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { BakeryService } from '../bakery.service';
 import { Dessert } from '../dessert';
+import {DomSanitizer} from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-add-dessert',
@@ -19,7 +22,7 @@ export class AddDessertComponent implements OnInit {
   url:string | ArrayBuffer;
 
 
-  constructor(private service : BakeryService, private router: Router) { }
+  constructor(private service : BakeryService, private router: Router,private domsanitizer: DomSanitizer ){ }
   
 
   ngOnInit(): void {
@@ -38,9 +41,14 @@ export class AddDessertComponent implements OnInit {
   
       reader.onload = (event) => { // called once readAsDataURL is completed
         this.url = event.target.result;
+        console.log(this.url.toString().length);
+        let Trusted =this.domsanitizer.bypassSecurityTrustResourceUrl(this.url.toString());
+      
+        console.log(Trusted);
+        this.image=this.url.toString();
         
       }
-       
+     
     }
-  }  
+  }
 }

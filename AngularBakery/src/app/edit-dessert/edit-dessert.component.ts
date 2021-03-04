@@ -54,6 +54,9 @@ export class EditDessertComponent implements OnInit {
         this.url = event.target.result;
         
       }
+
+      this.url=this.image;
+      
        
     }
   }  

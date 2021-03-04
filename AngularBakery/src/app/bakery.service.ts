@@ -30,6 +30,9 @@ editDessert(toedit:Dessert):Observable<Dessert>{
 deleteDessert(dessertId:number){
   return this.http.delete(this.baseURL+ `/deleteDessert/${dessertId}`);
 }
+buyDessert(dessertId:number){
+  return this.http.post(this.baseURL+`/buy/${dessertId}`,this.httpOptions);
+}
 getAllMenus():Observable<Menu[]>{
 return this.http.get<Menu[]>(this.baseURL+"/menus");
 }

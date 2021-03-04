@@ -24,7 +24,7 @@ export class DessertComponent implements OnInit {
     this.service.deleteDessert(dessertId).subscribe((_)=>{this.router.navigate(['desserts'])});
     }
     AddtoCart(dessertId){
-      this.isbuy="buy";
+      this.service.buyDessert(dessertId).subscribe((_)=>{this.router.navigate(['desserts'])})
       
     }
 }
