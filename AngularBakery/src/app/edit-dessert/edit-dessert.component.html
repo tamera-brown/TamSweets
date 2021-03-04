@@ -1,27 +1,31 @@
 <mat-card style="width: 300px;">
 
-    <mat-form-field appearance="fill" floatLbel='auto'>
-      <mat-label>Name</mat-label>
-      <input matInput type="text"[(ngModel)]="name" required>
-      
-    </mat-form-field>
-    <br/>
-    <mat-form-field appearance="fill" floatLbel='auto'>
-      <mat-label>Description</mat-label>
-      <input matInput type="text"[(ngModel)]="description" required>
-    </mat-form-field>
-    <br/>
-    <mat-form-field appearance="fill" floatLbel='auto'>
-      <mat-label>Price</mat-label>
-      <input matInput type="text"[(ngModel)]="price" required>
-    </mat-form-field>
-    <br/>
+  <mat-form-field appearance="fill" floatLbel='auto'>
+    <mat-label>Name</mat-label>
+    <input matInput type="text" [(ngModel)]="name" required>
 
-    <mat-form-field appearance="fill" floatLbel='auto'>
-      <mat-label>Image</mat-label>
-      <input matInput type="text"[(ngModel)]="image" required>
-    </mat-form-field>
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="fill" floatLbel='auto'>
+    <mat-label>Description</mat-label>
+    <input matInput type="text" [(ngModel)]="description" required>
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="fill" floatLbel='auto'>
+    <mat-label>Price</mat-label>
+    <input matInput type="text" [(ngModel)]="price" required>
+  </mat-form-field>
+  <br />
+
+  <div>
+    <mat-label class="col-md-4">Image</mat-label>
     <br/>
-    <button mat-raised-button color="primary" (click)="editDessert()">Submit</button>
+    <input type="file" class="form-control-file" accept="image/*" (change)="onSelectFile($event)" [(ngModel)]="image" />
+    <br />
+    <img [src]="url" height="200"> <br />
+  </div>
+
+
+  <br />
+  <button mat-raised-button color="primary" (click)="editDessert()">Submit</button>
 </mat-card>
-    

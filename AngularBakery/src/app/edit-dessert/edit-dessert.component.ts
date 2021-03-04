@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BakeryService } from '../bakery.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,11 +11,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditDessertComponent implements OnInit {
 
+
+  @ViewChild('fileInput') fileInput: ElementRef;
+  fileAttr="Choose File"
+
   dessertId:number;
   name: string;
   description : string;
   price: number;
   image:string;
+
+  url:string | ArrayBuffer;
 
  
 
@@ -36,12 +42,27 @@ export class EditDessertComponent implements OnInit {
       
     });
   }
- 
+
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+  
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+    
+  
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result;
+        
+      }
+       
+    }
+  }  
  
 editDessert(){
 let toedit={dessertId:this.dessertId,name:this.name,description:this.description,price:this.price,image:this.image}
 this.service.editDessert(toedit).subscribe((res) => {this.router.navigate(['desserts'])
 console.log(res)});
+
 
 }
 }
