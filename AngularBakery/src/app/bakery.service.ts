@@ -24,7 +24,7 @@ addDessert(tooAdd: Dessert):Observable<Dessert>{
   return this.http.post<Dessert>(this.baseURL+ "/addDessert",tooAdd,this.httpOptions);
 }
 editDessert(toedit:Dessert):Observable<Dessert>{
-  return this.http.put<Dessert>(this.baseURL+"/editDessert",toedit, this.httpOptions);
+  return this.http.put<Dessert>(this.baseURL+"/editDessert" ,toedit, this.httpOptions);
 }
 
 deleteDessert(dessertId:number){

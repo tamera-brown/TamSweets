@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 import { BakeryService } from '../bakery.service';
 import { Dessert } from '../dessert';
@@ -17,17 +16,8 @@ export class AddDessertComponent implements OnInit {
   price: number;
   image:string;
 
-  isSubmitted=false;
 
-  constructor(private fb:FormBuilder,private service : BakeryService, private router: Router) { }
-    dessertForm=this.fb.group({
-
-      name:['',Validators.required],
-      description:['',Validators.required],
-      price:['',Validators.required]
-
-
-    });
+  constructor(private service : BakeryService, private router: Router) { }
   
 
   ngOnInit(): void {

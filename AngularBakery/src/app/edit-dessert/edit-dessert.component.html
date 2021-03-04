@@ -1,8 +1,9 @@
-<mat-card>
+<mat-card style="width: 300px;">
 
     <mat-form-field appearance="fill" floatLbel='auto'>
       <mat-label>Name</mat-label>
       <input matInput type="text"[(ngModel)]="name" required>
+      
     </mat-form-field>
     <br/>
     <mat-form-field appearance="fill" floatLbel='auto'>
@@ -15,6 +16,12 @@
       <input matInput type="text"[(ngModel)]="price" required>
     </mat-form-field>
     <br/>
-    <button mat-raised-button color="primary">Submit</button>
+
+    <mat-form-field appearance="fill" floatLbel='auto'>
+      <mat-label>Image</mat-label>
+      <input matInput type="text"[(ngModel)]="image" required>
+    </mat-form-field>
+    <br/>
+    <button mat-raised-button color="primary" (click)="editDessert()">Submit</button>
 </mat-card>
     

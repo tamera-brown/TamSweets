@@ -11,6 +11,9 @@ import { Dessert } from '../dessert';
 export class DessertComponent implements OnInit {
 
   @Input() dessert:Dessert;
+
+  isbuy:string=null;
+  Quantity:number
   constructor(private service:BakeryService, private router:Router) { }
 
   ngOnInit(): void {
@@ -20,5 +23,8 @@ export class DessertComponent implements OnInit {
   deletDessert(dessertId){
     this.service.deleteDessert(dessertId).subscribe((_)=>{this.router.navigate(['desserts'])});
     }
-
+    AddtoCart(dessertId){
+      this.isbuy="buy";
+      
+    }
 }

@@ -1,11 +1,14 @@
 <mat-card style="width: 18rem;">
-    <img class="card-img-top" src={{dessert.image}} alt="Card image cap" style="width: 100%;">
+    <img class="card-img-top" src={{dessert.image}} alt="Dessert Image" style="width: 100%;">
     <div class="card-body">
       <h5 class="card-title">{{dessert.name}}</h5>
       <p class="card-text">{{dessert.description}}</p>
-      <p class="price">{{dessert.price}}</p>
+      <p class="price">${{dessert.price}}</p>
       <button mat-raised-button (click)="deletDessert(dessert.dessertId)" color="primary"><mat-icon>remove_circle</mat-icon></button>
       <button mat-raised-button [routerLink]="['/editDessert',dessert.dessertId]" color="primary"><mat-icon>create</mat-icon></button>
-     
+      <button mat-raised-button color="primary" (click)="AddtoCart(dessert.dessertId)"><mat-icon>shopping_bag</mat-icon></button>
+      <div *ngIf="isbuy">
+      <input matInput type="number" ([mgModel])="Quantity">
+      </div>
     </div>
 </mat-card>

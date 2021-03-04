@@ -6,14 +6,11 @@ import { AppComponent } from './app.component';
 import { DessertComponent } from './dessert/dessert.component';
 import { AddDessertComponent } from './add-dessert/add-dessert.component';
 import { BakeryInventoryComponent } from './bakery-inventory/bakery-inventory.component';
-
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditDessertComponent } from './edit-dessert/edit-dessert.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MaterialModule } from './material/material.module';
 
 
@@ -34,11 +31,8 @@ import { MaterialModule } from './material/material.module';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatToolbarModule, 
-    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

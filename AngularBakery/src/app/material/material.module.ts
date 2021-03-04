@@ -7,7 +7,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 const MaterialComponents=[
@@ -18,7 +20,11 @@ MatProgressSpinnerModule,
 MatMenuModule,
 MatFormFieldModule,
 MatInputModule,
-MatCardModule
+MatCardModule,
+MatToolbarModule,
+FormsModule,
+ReactiveFormsModule,
+MatSidenavModule
 ]
 
 @NgModule({
