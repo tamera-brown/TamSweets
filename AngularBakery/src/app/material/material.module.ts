@@ -10,7 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 const MaterialComponents=[
 MatButtonModule,
@@ -24,7 +24,8 @@ MatCardModule,
 MatToolbarModule,
 FormsModule,
 ReactiveFormsModule,
-MatSidenavModule
+MatSidenavModule,
+FlexLayoutModule
 ]
 
 @NgModule({

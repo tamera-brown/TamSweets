@@ -12,6 +12,7 @@ import { EditDessertComponent } from './edit-dessert/edit-dessert.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material/material.module';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MaterialModule } from './material/material.module';
     EditDessertComponent,
     NavComponent,
     HomeComponent,
-    BakeryInventoryComponent
+    BakeryInventoryComponent,
+    ContactComponent
    
    
   ],

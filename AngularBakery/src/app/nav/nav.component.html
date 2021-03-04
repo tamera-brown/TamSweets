@@ -1,7 +1,12 @@
 
 <mat-toolbar color="primary">
-    <h2>TamSweets</h2>
-  
+   <div fxShow="true" fxHide.gt.sm="true">
+     <button mat-icon-button (click)="sidenav.toggle()">
+     <mat-icon>menu</mat-icon>
+     </button>
+   </div>
+  <span>TamSweets</span>
+  <div fxShow="true" fxHide.lt-md="true">
   <button mat-button routerLink='/'>Home</button>
   <button mat-button routerLink='/menus' [matMenuTriggerFor]='appMenu'>Menus</button>
   <mat-menu #appMenu='matMenu'>
@@ -11,8 +16,29 @@
   </mat-menu>
   <button mat-button routerLink='/desserts'>Desserts</button>
   <button mat-button routerLink='/add'>Add Dessert</button>
+  <button mat-button routerLink='/contact'>Contact</button>
   <span [matBadge]='0' matBadgeOverlap='false'><mat-icon>local_grocery_store</mat-icon></span>
 
+</div>
   </mat-toolbar>
 
-  
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav color="primary" #sidenav fxLayout="column" mode="side" opened="false" fxHide.gt-sm="true">
+    <div fxLayout="column">
+      <button mat-button routerLink='/'>Home</button>
+      <button mat-button routerLink='/menus' [matMenuTriggerFor]='appMenu'>Menus</button>
+      <mat-menu #appMenu='matMenu'>
+    
+        <button mat-menu-item>Cake</button>
+        <button mat-menu-item>Cookies</button>
+      </mat-menu>
+      <button mat-button routerLink='/desserts'>Desserts</button>
+      <button mat-button routerLink='/add'>Add Dessert</button>
+      <span [matBadge]='0' matBadgeOverlap='false'><mat-icon>local_grocery_store</mat-icon></span>
+    
+    </div>
+
+  </mat-sidenav>
+
+
+</mat-sidenav-container>
