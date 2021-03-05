@@ -22,7 +22,7 @@
 </div>
   </mat-toolbar>
 
-<mat-sidenav-container fxFlexAlign="center">
+<mat-sidenav-container fxFlexFill>
   <mat-sidenav color="primary" #sidenav fxLayout="column" mode="side" opened="false" fxHide.gt-sm="true">
     <div fxLayout="column">
       <button mat-button routerLink='/'>Home</button>
@@ -40,6 +40,7 @@
     </div>
 
   </mat-sidenav>
+  <mat-container-content fxFlexFill></mat-container-content>
 
 
 </mat-sidenav-container>
