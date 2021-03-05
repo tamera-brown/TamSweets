@@ -63,8 +63,7 @@ export class EditDessertComponent implements OnInit {
  
 editDessert(){
 let toedit={dessertId:this.dessertId,name:this.name,description:this.description,price:this.price,image:this.image}
-this.service.editDessert(toedit).subscribe((res) => {this.router.navigate(['desserts'])
-console.log(res)});
+this.service.editDessert(toedit).subscribe((res) => {this.router.navigate(['desserts'])});
 
 
 }

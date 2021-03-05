@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Dessert } from './dessert';
 import { Menu } from './menu';
+import { Order } from './order';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,8 @@ buyDessert(dessertId:number){
 getAllMenus():Observable<Menu[]>{
 return this.http.get<Menu[]>(this.baseURL+"/menus");
 }
-
+getAllOrders():Observable<Order[]>{
+  return this.http.get<Order[]>(this.baseURL+"/orders");
+}
 
 }

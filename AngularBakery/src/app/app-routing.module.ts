@@ -5,6 +5,7 @@ import { BakeryInventoryComponent } from './bakery-inventory/bakery-inventory.co
 import { ContactComponent } from './contact/contact.component';
 import { EditDessertComponent } from './edit-dessert/edit-dessert.component';
 import { HomeComponent } from './home/home.component'; import { MenusComponent } from './menus/menus.component';
+import { ViewOrdersComponent } from './view-orders/view-orders.component';
 
 const routes: Routes = [
   {path:'',redirectTo: 'home', pathMatch:'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'desserts', component:BakeryInventoryComponent},
   {path: "add", component: AddDessertComponent},
   {path:"editDessert/:id",component:EditDessertComponent},
-  {path:'contact', component:ContactComponent}
+  {path:'contact', component:ContactComponent},
+  {path:'orders',component:ViewOrdersComponent}
 ];
 
 @NgModule({

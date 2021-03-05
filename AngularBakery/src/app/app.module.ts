@@ -13,6 +13,7 @@ import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material/material.module';
 import { ContactComponent } from './contact/contact.component';
+import { ViewOrdersComponent } from './view-orders/view-orders.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ContactComponent } from './contact/contact.component';
     NavComponent,
     HomeComponent,
     BakeryInventoryComponent,
-    ContactComponent
+    ContactComponent,
+    ViewOrdersComponent
    
    
   ],

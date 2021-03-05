@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatTableModule} from '@angular/material/table';
 
 const MaterialComponents=[
 MatButtonModule,
@@ -25,7 +26,8 @@ MatToolbarModule,
 FormsModule,
 ReactiveFormsModule,
 MatSidenavModule,
-FlexLayoutModule
+FlexLayoutModule,
+MatTableModule
 ]
 
 @NgModule({

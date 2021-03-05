@@ -17,12 +17,12 @@
   <button mat-button routerLink='/desserts'>Desserts</button>
   <button mat-button routerLink='/add'>Add Dessert</button>
   <button mat-button routerLink='/contact'>Contact</button>
-  <span [matBadge]='0' matBadgeOverlap='false'><mat-icon>local_grocery_store</mat-icon></span>
+  <span [matBadge]='items' matBadgeOverlap='false'><mat-icon routerLink="/orders">local_grocery_store</mat-icon></span>
 
 </div>
   </mat-toolbar>
 
-<mat-sidenav-container fxFlexFill>
+<mat-sidenav-container fxFlexAlign="center">
   <mat-sidenav color="primary" #sidenav fxLayout="column" mode="side" opened="false" fxHide.gt-sm="true">
     <div fxLayout="column">
       <button mat-button routerLink='/'>Home</button>
@@ -34,7 +34,8 @@
       </mat-menu>
       <button mat-button routerLink='/desserts'>Desserts</button>
       <button mat-button routerLink='/add'>Add Dessert</button>
-      <span [matBadge]='0' matBadgeOverlap='false'><mat-icon>local_grocery_store</mat-icon></span>
+      <button mat-button routerLink='/contact'>Contact</button>
+      <span [matBadge]='items' matBagdeColor="primary" matBadgeOverlap='false'><mat-icon routerLink="/orders">local_grocery_store</mat-icon></span>
     
     </div>
 

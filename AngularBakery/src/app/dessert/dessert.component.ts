@@ -12,8 +12,6 @@ export class DessertComponent implements OnInit {
 
   @Input() dessert:Dessert;
 
-  isbuy:string=null;
-  Quantity:number
   constructor(private service:BakeryService, private router:Router) { }
 
   ngOnInit(): void {
