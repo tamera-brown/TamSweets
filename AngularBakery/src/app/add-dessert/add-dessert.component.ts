@@ -20,6 +20,7 @@ export class AddDessertComponent implements OnInit {
   image:string;
 
   url:string | ArrayBuffer;
+  
 
 
   constructor(private service : BakeryService, private router: Router,private domsanitizer: DomSanitizer ){ }
@@ -41,11 +42,11 @@ export class AddDessertComponent implements OnInit {
   
       reader.onload = (event) => { // called once readAsDataURL is completed
         this.url = event.target.result;
-        console.log(this.url.toString().length);
-        let Trusted =this.domsanitizer.bypassSecurityTrustResourceUrl(this.url.toString());
+        console.log(this.url.toString().trim.length);
+        let Trusted =this.domsanitizer.bypassSecurityTrustResourceUrl(this.url.toString().trim());
       
         console.log(Trusted);
-        this.image=this.url.toString();
+        this.image=this.url.toString().trim();
         
       }
      

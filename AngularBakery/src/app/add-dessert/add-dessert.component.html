@@ -8,7 +8,7 @@
 
 <mat-form-field appearance="fill" floatLbel='auto'>
   <mat-label>Description</mat-label>
-  <input matInput type="text"[(ngModel)]="description" required>
+  <textarea matInput type="text"[(ngModel)]="description" required></textarea>
 </mat-form-field>
 <br/>
 
@@ -21,9 +21,9 @@
 <div>
   <mat-label class="col-md-4">Image</mat-label>
   <br/>
-  <input type="file" class="form-control-file" accept="image/*" (change)="onSelectFile($event)" [(ngModel)]="image" />
+  <input type="file" accept="image/*" (change)="onSelectFile($event)" [(ngModel)]="image" />
   <br />
-  <img [src]="url" height="200"> <br />
+  <img [src]="image" height="200"> <br/>
 </div>
 <br/>
 <button mat-raised-button color="primary" (click)="addDessert()">Submit</button>
