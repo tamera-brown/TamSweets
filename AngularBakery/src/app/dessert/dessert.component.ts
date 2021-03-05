@@ -12,6 +12,7 @@ export class DessertComponent implements OnInit {
 
   @Input() dessert:Dessert;
 
+
   constructor(private service:BakeryService, private router:Router) { }
 
   ngOnInit(): void {
@@ -19,10 +20,14 @@ export class DessertComponent implements OnInit {
   
   }
   deletDessert(dessertId){
-    this.service.deleteDessert(dessertId).subscribe((_)=>{this.router.navigate(['desserts'])});
+    this.service.deleteDessert(dessertId).subscribe((_)=>{
+    
+      this.router.navigate(['desserts'])});
     }
     AddtoCart(dessertId){
-      this.service.buyDessert(dessertId).subscribe((_)=>{this.router.navigate(['desserts'])})
-      
+      this.service.buyDessert(dessertId).subscribe((_)=>{this.router.navigate(['desserts'])
+      });
     }
+      
+    
 }

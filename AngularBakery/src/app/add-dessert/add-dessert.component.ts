@@ -47,6 +47,7 @@ export class AddDessertComponent implements OnInit {
       
         console.log(Trusted);
         this.image=this.url.toString().trim();
+        console.log(this.image.length);
         
       }
      

@@ -9,13 +9,14 @@ import { Dessert } from '../dessert';
 })
 export class BakeryInventoryComponent implements OnInit {
   desserts:Dessert[];
-
+  isLoading:boolean;
   constructor(private service : BakeryService) { }
 
   ngOnInit(): void {
     this.service.getAllDesserts().subscribe(list => {
-      this.desserts = list
-    });
+      this.desserts = list;
+    }, (err)=>{
+      this.isLoading=true;});
   }
 
 }

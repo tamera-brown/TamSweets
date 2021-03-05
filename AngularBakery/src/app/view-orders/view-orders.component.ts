@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Order } from '../order';
 import {MatTableDataSource} from '@angular/material/table';
 import { BakeryService } from '../bakery.service';
