@@ -17,14 +17,18 @@
   </mat-form-field>
   <br />
 
-  <div>
+  <!-- <div>
     <mat-label class="col-md-4">Image</mat-label>
     <br/>
     <input type="file" class="form-control-file" accept="image/*" (change)="onSelectFile($event)" [(ngModel)]="image" />
     <br />
     <img [src]="url" height="200"> <br />
-  </div>
-
+  </div> -->
+  <mat-label>Image</mat-label>
+  <input type="file" id="customFile" (change)="selectFile($event)" accept="image/*" [(ngModel)]="image"/>
+  <button class="btn btn-primary"  (click)="upload()">Save File</button>
+  
+  
 
   <br />
   <button mat-raised-button color="primary" (click)="editDessert()">Submit</button>

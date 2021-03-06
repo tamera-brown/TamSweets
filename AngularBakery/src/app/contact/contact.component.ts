@@ -8,7 +8,7 @@ import { ContactService } from '../contact.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-message:string
+
 FormData: FormGroup;
 
   constructor(private http: HttpClient, private fb :FormBuilder, private contact: ContactService) { }
@@ -17,7 +17,7 @@ FormData: FormGroup;
     this.FormData = this.fb.group({
       Fullname: new FormControl('', [Validators.required]),
       Email: new FormControl('', [Validators.compose([Validators.required, Validators.email])]),
-      Comment: new FormControl('', [Validators.required])
+      Message: new FormControl('', [Validators.required])
       
     })
   }

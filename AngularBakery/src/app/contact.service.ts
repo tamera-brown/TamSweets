@@ -9,7 +9,7 @@ private api="https://formspree.io/f/xpzoggov"
   constructor(private http:HttpClient) { }
   
   PostMessage(input: any){
-    return this.http.post(this.api,input,{responseType:'text'});
+    return this.http.post(this.api,input,{responseType:'text'}).pipe();
     
   }
 }

@@ -15,7 +15,7 @@ export class UploadfileService {
 
     data.append('file', file);
 
-    const newRequest = new HttpRequest('POST', 'http://localhost:8080/uploadFile', data, {
+    const newRequest = new HttpRequest('POST', 'http://localhost:8080/savefile', data, {
       reportProgress: true,
       responseType: 'text'
     });

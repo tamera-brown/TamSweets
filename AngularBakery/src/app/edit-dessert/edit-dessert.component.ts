@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BakeryService } from '../bakery.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UploadfileService } from '../uploadfile.service';
+import { HttpEventType, HttpResponse } from '@angular/common/http';
 
 
 
@@ -11,9 +13,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditDessertComponent implements OnInit {
 
+  selectedFiles: FileList;
+  currentFileUpload: File;
+  progress: { percentage: number } = { percentage: 0 };
+  selectedFile = null;
+  changeImage = false;
 
-  @ViewChild('fileInput') fileInput: ElementRef;
-  fileAttr="Choose File"
+
 
   dessertId:number;
   name: string;
@@ -21,11 +27,11 @@ export class EditDessertComponent implements OnInit {
   price: number;
   image:string;
 
-  url:string | ArrayBuffer;
+
 
  
 
-  constructor(private service: BakeryService, private router:Router,private route:ActivatedRoute) { }
+  constructor(private service: BakeryService, private router:Router,private route:ActivatedRoute, private uploadService : UploadfileService) { }
   
   ngOnInit(): void {
     
@@ -41,24 +47,6 @@ export class EditDessertComponent implements OnInit {
       this.image=res.image;
       
     });
-  }
-
-  onSelectFile(event) {
-    if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
-  
-      reader.readAsDataURL(event.target.files[0]); // read file as data url
-    
-  
-      reader.onload = (event) => { // called once readAsDataURL is completed
-        this.url = event.target.result;
-        
-      }
-
-      this.url=this.image;
-      
-       
-    }
   }  
  
 editDessert(){
@@ -66,6 +54,37 @@ let toedit={dessertId:this.dessertId,name:this.name,description:this.description
 this.service.editDessert(toedit).subscribe((res) => {this.router.navigate(['desserts'])});
 
 
+}
+change($event) {
+  this.changeImage = true;
+}
+
+changedImage(event) {
+  this.selectedFile = event.target.files[0];
+}
+
+upload() {
+  this.progress.percentage = 0;
+
+  this.currentFileUpload = this.selectedFiles.item(0);
+  this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+    if (event.type === HttpEventType.UploadProgress) {
+      this.progress.percentage = Math.round(100 * event.loaded / event.total);
+    } else if (event instanceof HttpResponse) {
+      // alert('File Successfully Uploaded');  
+      this.image="./assets/file_name.png"
+    
+    }
+
+  
+
+  this.selectedFiles = undefined;
+    }
+  );
+}
+
+selectFile(event) {
+  this.selectedFiles = event.target.files;
 }
 }
 
