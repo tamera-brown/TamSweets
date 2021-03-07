@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BakeryService } from '../bakery.service';
-import { Menu } from '../menu';
+import { BakeryService } from '../services/bakery.service';
+import { Menu } from '../interfaces/menu';
 
 @Component({
   selector: 'app-menus',

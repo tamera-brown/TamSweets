@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BakeryService } from '../bakery.service';
-import { Dessert } from '../dessert';
+import { BakeryService } from '../services/bakery.service';
+import { Dessert } from '../interfaces/dessert';
 
 @Component({
   selector: 'app-dessert',

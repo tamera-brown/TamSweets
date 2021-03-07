@@ -1,10 +1,10 @@
 import { HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { BakeryService } from '../bakery.service';
-import { Dessert } from '../dessert';
+import { BakeryService } from '../services/bakery.service';
+import { Dessert } from '../interfaces/dessert';
 import {DomSanitizer} from '@angular/platform-browser';
-import { UploadfileService } from '../uploadfile.service';
+import { UploadfileService } from '../services/uploadfile.service';
 
 
 @Component({
@@ -58,7 +58,7 @@ export class AddDessertComponent implements OnInit {
         this.progress.percentage = Math.round(100 * event.loaded / event.total);
       } else if (event instanceof HttpResponse) {
         // alert('File Successfully Uploaded');  
-        this.image="./assets/file_name.png"
+        this.image='./assets/' + this.image;
       
       }
   

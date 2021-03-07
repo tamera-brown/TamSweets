@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BakeryService } from '../bakery.service';
-import { Order } from '../order';
+import { BakeryService } from '../services/bakery.service';
+import { Order } from '../interfaces/order';
 
 @Component({
   selector: 'app-nav',

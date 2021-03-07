@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { BakeryService } from '../bakery.service';
+import { BakeryService } from '../services/bakery.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UploadfileService } from '../uploadfile.service';
+import { UploadfileService } from '../services/uploadfile.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 
 

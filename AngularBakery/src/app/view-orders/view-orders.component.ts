@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Order } from '../order';
+import { Order } from '../interfaces/order';
 import {MatTableDataSource} from '@angular/material/table';
-import { BakeryService } from '../bakery.service';
+import { BakeryService } from '../services/bakery.service';
 
 @Component({
   selector: 'app-view-orders',
