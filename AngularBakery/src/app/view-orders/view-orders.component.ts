@@ -3,6 +3,7 @@ import { Order } from '../interfaces/order';
 import {MatTableDataSource} from '@angular/material/table';
 import { BakeryService } from '../services/bakery.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-view-orders',
@@ -11,21 +12,28 @@ import { Router } from '@angular/router';
 })
 export class ViewOrdersComponent implements OnInit {
 
-orders: Order[]=[];
 
-@Input() Order:Order;
+@Input() orders: Order[]=[];
+displayedColumns: string[]=['image','name','price', 'quantity','action'];
+dataSource:MatTableDataSource<Order>;
 
 
-  constructor(private service:BakeryService, private router: Router) { }
-  displayedColumns: string[] = ['image','name', 'price','quantity','action'];
-  dataSource = new MatTableDataSource(this.orders);
+
+
+
+  constructor(private service:BakeryService, private router: Router) {
+  
+   }
+  
+
 
   
   ngOnInit(): void {
-    this.service.getAllOrders().subscribe(orders=>{
-      this.dataSource=new MatTableDataSource(orders)
-      console.log(orders);
-    })
+    this.service.getAllOrders().subscribe(order=>{
+
+      this.dataSource= new MatTableDataSource(order);
+    
+    });
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
