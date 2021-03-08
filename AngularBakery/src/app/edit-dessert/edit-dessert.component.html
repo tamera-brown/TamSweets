@@ -1,5 +1,6 @@
 <mat-card style="width: 300px;">
-
+<mat-card-title>Edit Dessert</mat-card-title>
+<mat-card-content>
   <mat-form-field appearance="fill" floatLbel='auto'>
     <mat-label>Name</mat-label>
     <input matInput type="text" [(ngModel)]="name" required>
@@ -32,4 +33,5 @@
 
   <br />
   <button mat-raised-button color="primary" (click)="editDessert()">Submit</button>
+</mat-card-content>
 </mat-card>

@@ -27,7 +27,8 @@ import { ViewOrdersComponent } from './view-orders/view-orders.component';
     HomeComponent,
     BakeryInventoryComponent,
     ContactComponent,
-    ViewOrdersComponent
+    ViewOrdersComponent,
+    
    
    
   ],

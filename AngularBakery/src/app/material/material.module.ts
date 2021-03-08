@@ -12,6 +12,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 
 const MaterialComponents=[
 MatButtonModule,
@@ -27,7 +28,8 @@ FormsModule,
 ReactiveFormsModule,
 MatSidenavModule,
 FlexLayoutModule,
-MatTableModule
+MatTableModule,
+MatDialogModule
 ]
 
 @NgModule({
