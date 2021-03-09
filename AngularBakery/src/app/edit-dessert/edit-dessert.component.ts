@@ -72,7 +72,7 @@ upload() {
       this.progress.percentage = Math.round(100 * event.loaded / event.total);
     } else if (event instanceof HttpResponse) {
       // alert('File Successfully Uploaded');  
-      this.image="./assets/file_name.png"
+      this.image= "./src/assets/" +this.currentFileUpload.name;
     
     }
 

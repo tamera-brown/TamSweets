@@ -30,7 +30,7 @@ export class AddDessertComponent implements OnInit {
   selectedFile = null;
   changeImage = false;
 
-  constructor(private service : BakeryService, private router: Router,private domsanitizer: DomSanitizer, private uploadService: UploadfileService){ }
+  constructor(private service : BakeryService,private domsanitizer:DomSanitizer, private router: Router, private uploadService: UploadfileService){ }
   
 
   ngOnInit(): void {
@@ -57,12 +57,14 @@ export class AddDessertComponent implements OnInit {
       if (event.type === HttpEventType.UploadProgress) {
         this.progress.percentage = Math.round(100 * event.loaded / event.total);
       } else if (event instanceof HttpResponse) {
-        // alert('File Successfully Uploaded');  
-        this.image='./assets/' + this.image;
+        // alert('File Successfully Uploaded'); 
+        
+        
+        this.image= "./src/assets/" +this.currentFileUpload.name;
       
       }
   
-    
+      
 
     this.selectedFiles = undefined;
       }
@@ -71,7 +73,8 @@ export class AddDessertComponent implements OnInit {
 
   selectFile(event) {
     this.selectedFiles = event.target.files;
-  }
   
+  }
+ 
 }
 
