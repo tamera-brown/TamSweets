@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { BakeryService } from '../services/bakery.service';
 import { Dessert } from '../interfaces/dessert';
 
@@ -13,7 +12,7 @@ export class DessertComponent implements OnInit {
   @Input() dessert:Dessert;
 
 
-  constructor(private service:BakeryService, private router:Router) { }
+  constructor(private service:BakeryService) { }
 
   ngOnInit(): void {
 
@@ -21,11 +20,13 @@ export class DessertComponent implements OnInit {
   }
   deletDessert(dessertId){
     this.service.deleteDessert(dessertId).subscribe((_)=>{
-    
-      this.router.navigate(['desserts'])});
+      window.location.reload();
+    });
     }
     AddtoCart(dessertId){
-      this.service.buyDessert(dessertId).subscribe((_)=>{this.router.navigate(['desserts'])
+      this.service.buyDessert(dessertId).subscribe((_)=>{
+        window.location.reload();
+      
       });
     }
       

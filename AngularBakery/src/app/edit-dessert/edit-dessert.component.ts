@@ -38,8 +38,7 @@ export class EditDessertComponent implements OnInit {
    
     this.dessertId=parseInt(this.route.snapshot.paramMap.get('id'));
 
-    console.log(this.dessertId);
-
+  
     this.service.getDessertById(this.dessertId).subscribe(res=>{
       this.name=res.name;
       this.description=res.description;
@@ -47,6 +46,7 @@ export class EditDessertComponent implements OnInit {
       this.image=res.image;
       
     });
+
   }  
  
 editDessert(){

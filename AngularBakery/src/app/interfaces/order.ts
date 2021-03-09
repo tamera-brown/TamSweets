@@ -2,7 +2,7 @@ import { Dessert } from "./dessert";
 
 export interface Order {
     orderId? : number;
-    desserId:number;
+    dessertId:number;
     quantity:number;
     bagItem:Dessert
 }

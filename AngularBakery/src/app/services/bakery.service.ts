@@ -40,6 +40,12 @@ return this.http.get<Menu[]>(this.baseURL+"/menus");
 getAllOrders():Observable<Order[]>{
   return this.http.get<Order[]>(this.baseURL+"/orders");
 }
+getOrderById(orderId:number):Observable<Order>{
+  return this.http.get<Order>(this.baseURL + `/orders/${orderId}`)
+}
+editOrder(toedit:Order):Observable<Order>{
+  return this.http.put<Order>(this.baseURL+"/editOrder",toedit,this.httpOptions)
+}
 deleteOrder(orderId:number){
   return this.http.delete(this.baseURL+ `/deleteOrder/${orderId}`);
 }

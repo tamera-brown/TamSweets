@@ -8,3 +8,7 @@ table {
     width: 100%;
     background-color: lightblue;
   }
+  img{
+    height: 200px;
+    width: 200px;
+  }
