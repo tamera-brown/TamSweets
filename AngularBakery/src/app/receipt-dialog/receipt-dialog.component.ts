@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Order } from '../interfaces/order';
 import { BakeryService } from '../services/bakery.service';
 
@@ -11,9 +11,12 @@ import { BakeryService } from '../services/bakery.service';
 export class ReceiptDialogComponent implements OnInit {
 
   @Input() order:Order;
-
+  subtotal:number;
   orders:Order[];
-  constructor(private service:BakeryService,private dialogRef: MatDialogRef<ReceiptDialogComponent>) { }
+  constructor(private service:BakeryService,private dialogRef: MatDialogRef<ReceiptDialogComponent>,
+     @Inject(MAT_DIALOG_DATA) data){
+       this.subtotal=data.subtotal;
+     } 
 
   ngOnInit(): void {
    this.service.getAllOrders().subscribe(list => {
@@ -25,4 +28,5 @@ this.dialogRef.close();
 print(){
   window.print();
 }
+
 }

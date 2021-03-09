@@ -24,6 +24,9 @@ dessertId:number;
 quantity:number;
 bagItem:Dessert;
 totalPrice:number;
+subtotal:number=0;
+
+
 
 
 
@@ -31,15 +34,14 @@ totalPrice:number;
   
    }
   
-
-
-  
   ngOnInit(): void {
     this.service.getAllOrders().subscribe(order=>{
 
       this.dataSource= new MatTableDataSource(order);
     
+      
     });
+    
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -62,6 +64,14 @@ totalPrice:number;
 
     
   }
+  Subtotal(){
+  
+    for(let i=0; i<this.orders.length;i++){
+      this.subtotal+=this.orders[i].totalPrice;
+      console.log(this.subtotal);
+    }
+    return this.subtotal;
+  }
   deleteOrder(orderId){
     this.service.deleteOrder(orderId).subscribe((_)=>{
     window.location.reload();
@@ -72,6 +82,14 @@ totalPrice:number;
       dialogConfig.disableClose=true;
       dialogConfig.autoFocus=true;
 
+      dialogConfig.data={
+          subtotal:this.subtotal
+      }
+
       this.dialog.open(ReceiptDialogComponent,dialogConfig);
     }
+
+   
+    
+
 }
