@@ -24,7 +24,7 @@ bagItem:Dessert;
 
 
 
-  constructor(private service:BakeryService, private router: Router) {
+  constructor(private service:BakeryService) {
   
    }
   
@@ -62,5 +62,8 @@ bagItem:Dessert;
     this.service.deleteOrder(orderId).subscribe((_)=>{
     window.location.reload();
       });
+    }
+    openDialog(){
+
     }
 }
