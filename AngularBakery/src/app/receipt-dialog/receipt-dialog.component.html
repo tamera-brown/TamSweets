@@ -1,1 +1,91 @@
-<p>receipt-dialog works!</p>
+
+<a class="btn btn-sm btn-secondary float-right mr-1 d-print-none" (click)="print()">Print</a>
+
+
+<mat-dialog-content>
+    <div class="float-right">
+        <h2 mat-dialog-title>Receipt</h2>
+        Date:
+    </div>
+
+<div class="card-body">
+    <div class="row mb-4">
+        <div class="col-sm-6">
+            
+            <h3 class="text-dark mb-1">Name:</h3>
+            <div>Address</div>
+            <div>City, Zip:</div>
+            <div>Email:</div>
+        
+        </div>
+       
+    </div>
+    <div class="table-responsive-sm">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="center">Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th class="right">Price</th>
+                    <th class="center">Qty</th>
+                    <th class="right">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <div *ngFor="let order of orders">
+                <tr>
+                    <td class="center"><img src="{{order.bagItem.image}}"></td>
+                    <td class="left strong">{{order.bagItem.name}}</td>
+                    <td class="left">{{order.bagItem.description}}</td>
+                    <td class="right">${{order.bagItem.price}}</td>
+                    <td class="center">{{order.quantity}}</td>
+                    <td class="right">${{order.totalPrice}}</td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-sm-5">
+        </div>
+        <div class="col-lg-4 col-sm-5 ml-auto">
+            <table class="table table-clear">
+                <tbody>
+                    <tr>
+                        <td class="left">
+                            <strong class="text-dark">Subtotal</strong>
+                        </td>
+                        <td class="right">$</td>
+                    </tr>
+                    <tr>
+                        <td class="left">
+                            <strong class="text-dark">Taxes(5.00)</strong>
+                            
+                        </td>
+                        <td class="right">$</td>
+                    </tr>
+                    <tr>
+                        <!-- <td class="left">
+                            <strong class="text-dark">S & H (25.00)</strong>
+                        </td>
+                        <td class="right">$</td> -->
+                    </tr>
+                    <tr>
+                        <td class="left">
+                            <strong class="text-dark">Grand Total:</strong> </td>
+                        <td class="right">
+                            <strong class="text-dark">$</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+<button mat-raised-button color="primary"  (click)="close()">Close</button>
+</mat-dialog-actions>

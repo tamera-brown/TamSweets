@@ -31,6 +31,7 @@ import { ReceiptDialogComponent } from './receipt-dialog/receipt-dialog.componen
     ViewOrdersComponent,
     ReceiptDialogComponent,
     
+    
    
    
   ],
@@ -42,6 +43,7 @@ import { ReceiptDialogComponent } from './receipt-dialog/receipt-dialog.componen
     BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ReceiptDialogComponent]
 })
 export class AppModule { }

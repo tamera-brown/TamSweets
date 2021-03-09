@@ -5,6 +5,8 @@ import { BakeryService } from '../services/bakery.service';
 import { Router } from '@angular/router';
 import { Dessert } from '../interfaces/dessert';
 import { Observable } from 'rxjs';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ReceiptDialogComponent } from '../receipt-dialog/receipt-dialog.component';
 
 @Component({
   selector: 'app-view-orders',
@@ -21,10 +23,11 @@ orderId:number;
 dessertId:number;
 quantity:number;
 bagItem:Dessert;
+totalPrice:number;
 
 
 
-  constructor(private service:BakeryService) {
+  constructor(private service:BakeryService, private dialog:MatDialog) {
   
    }
   
@@ -49,8 +52,9 @@ bagItem:Dessert;
     this.dessertId=res.dessertId;
     this.bagItem=res.bagItem;
 
+
    
-    let toedit={orderId:this.orderId,dessertId:this.dessertId,quantity:this.quantity,bagItem:this.bagItem}
+    let toedit={orderId:this.orderId,dessertId:this.dessertId,quantity:this.quantity,bagItem:this.bagItem,totalPrice:this.totalPrice}
     console.log(toedit);
   this.service.editOrder(toedit).subscribe();
   window.location.reload();
@@ -64,6 +68,10 @@ bagItem:Dessert;
       });
     }
     openDialog(){
+      const dialogConfig=new MatDialogConfig();
+      dialogConfig.disableClose=true;
+      dialogConfig.autoFocus=true;
 
+      this.dialog.open(ReceiptDialogComponent,dialogConfig);
     }
 }
