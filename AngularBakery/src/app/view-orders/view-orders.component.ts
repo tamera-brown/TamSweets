@@ -4,8 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { BakeryService } from '../services/bakery.service';
 import { Router } from '@angular/router';
 import { Dessert } from '../interfaces/dessert';
-import { Observable } from 'rxjs';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-view-orders',
@@ -16,6 +15,7 @@ export class ViewOrdersComponent implements OnInit {
 
 @Input() orders: Order[]=[];
 displayedColumns: string[]=['image','name','price', 'quantity','action','totalprice'];
+
 dataSource:MatTableDataSource<Order>;
 
 orderId:number;
@@ -24,12 +24,14 @@ quantity:number;
 bagItem:Dessert;
 totalPrice:number;
 subtotal:number=0;
+tax:number=0;
+grandtotal:number=0;
 
 
 
 
 
-  constructor(private service:BakeryService, private dialog:MatDialog) {
+  constructor(private service:BakeryService) {
   
    }
   
@@ -38,8 +40,17 @@ subtotal:number=0;
 
       this.dataSource= new MatTableDataSource(order);
     
+      for(let i=0; i<order.length;i++){
+       
+         this.subtotal+=order[i].totalPrice;
+         this.tax+=this.subtotal * 0.05;
+         this.grandtotal+=this.subtotal+this.tax;
+       
+      }
       
+
     });
+   
     
   }
   
@@ -61,13 +72,14 @@ subtotal:number=0;
 
     
   }
-  Subtotal(){
+  Subtotal():number{
   
+    let subtotal=0;
     for(let i=0; i<this.orders.length;i++){
-      this.subtotal+=this.orders[i].totalPrice;
+      subtotal+=this.orders[i].totalPrice;
       console.log(this.subtotal);
     }
-    return this.subtotal;
+    return subtotal;
   }
   deleteOrder(orderId){
     this.service.deleteOrder(orderId).subscribe((_)=>{
