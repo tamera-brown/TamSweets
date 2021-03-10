@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { Dessert } from '../interfaces/dessert';
 import { Observable } from 'rxjs';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ReceiptDialogComponent } from '../receipt-dialog/receipt-dialog.component';
 
 @Component({
   selector: 'app-view-orders',
@@ -16,7 +15,7 @@ import { ReceiptDialogComponent } from '../receipt-dialog/receipt-dialog.compone
 export class ViewOrdersComponent implements OnInit {
 
 @Input() orders: Order[]=[];
-displayedColumns: string[]=['image','name','price', 'quantity','action'];
+displayedColumns: string[]=['image','name','price', 'quantity','action','totalprice'];
 dataSource:MatTableDataSource<Order>;
 
 orderId:number;
@@ -43,21 +42,19 @@ subtotal:number=0;
     });
     
   }
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+  
   editOrder(orderId){
   
     this.service.getOrderById(orderId).subscribe((res=>{
-      this.orderId=res.orderId;
+    this.orderId=res.orderId;
     this.dessertId=res.dessertId;
     this.bagItem=res.bagItem;
+    this.totalPrice=res.totalPrice;
 
 
    
     let toedit={orderId:this.orderId,dessertId:this.dessertId,quantity:this.quantity,bagItem:this.bagItem,totalPrice:this.totalPrice}
-    console.log(toedit);
+   
   this.service.editOrder(toedit).subscribe();
   window.location.reload();
     }));
@@ -77,19 +74,11 @@ subtotal:number=0;
     window.location.reload();
       });
     }
-    openDialog(){
-      const dialogConfig=new MatDialogConfig();
-      dialogConfig.disableClose=true;
-      dialogConfig.autoFocus=true;
-
-      dialogConfig.data={
-          subtotal:this.subtotal
-      }
-
-      this.dialog.open(ReceiptDialogComponent,dialogConfig);
-    }
+   
 
    
-    
+  print(){
+    window.print();
+  } 
 
 }

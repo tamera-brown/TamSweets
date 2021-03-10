@@ -21,7 +21,7 @@
   <mat-label>Image</mat-label>
   <input type="file" id="customFile" (change)="selectFile($event)" (click)="upload()" accept="image/*" [(ngModel)]="image"/>
   
- 
+ <img [src]="url" height="200px">
 
   <br />
   <button mat-raised-button color="primary" (click)="editDessert()">Submit</button>

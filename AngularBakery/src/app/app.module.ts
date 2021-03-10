@@ -14,7 +14,6 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material/material.module';
 import { ContactComponent } from './contact/contact.component';
 import { ViewOrdersComponent } from './view-orders/view-orders.component';
-import { ReceiptDialogComponent } from './receipt-dialog/receipt-dialog.component';
 
 
 @NgModule({
@@ -29,7 +28,7 @@ import { ReceiptDialogComponent } from './receipt-dialog/receipt-dialog.componen
     BakeryInventoryComponent,
     ContactComponent,
     ViewOrdersComponent,
-    ReceiptDialogComponent,
+    
     
     
    
@@ -43,7 +42,6 @@ import { ReceiptDialogComponent } from './receipt-dialog/receipt-dialog.componen
     BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents:[ReceiptDialogComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

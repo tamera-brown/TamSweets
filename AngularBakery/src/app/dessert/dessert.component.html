@@ -11,6 +11,10 @@
       <button mat-raised-button (click)="deletDessert(dessert.dessertId)" color="primary"><mat-icon>remove_circle</mat-icon></button>
       <button mat-raised-button [routerLink]="['/editDessert',dessert.dessertId]" color="primary"><mat-icon>create</mat-icon></button>
       <button mat-raised-button color="primary" (click)="AddtoCart(dessert.dessertId)"><mat-icon>shopping_bag</mat-icon></button>
+
+      <div *ngIf="alreadyInCart">
+        <p style="color: red;"> Already added to cart</p>
+      </div>
     </mat-card-actions>
      
       

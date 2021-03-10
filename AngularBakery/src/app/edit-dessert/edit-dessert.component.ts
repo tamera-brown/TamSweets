@@ -19,6 +19,7 @@ export class EditDessertComponent implements OnInit {
   selectedFile = null;
   changeImage = false;
 
+  url:string|ArrayBuffer;
 
 
   dessertId:number;
@@ -84,7 +85,31 @@ upload() {
 }
 
 selectFile(event) {
-  this.selectedFiles = event.target.files;
+  if (event.target.files && event.target.files[0]) {
+    const file=event.target.files[0];
+   
+
+    var reader = new FileReader();
+    var filename=event.target.files[0].name;
+    console.log(filename);
+    
+  
+    reader.readAsDataURL(file); // read file as data url
+    console.log(file);
+  
+    reader.onload = () => { // called once readAsDataURL is completed
+    
+    this.url = reader.result;
+    }
+  }
+  //console.log(this.url);
+  this.selectedFiles = event.target.files; 
+//  console.log(document.getElementById('customFile').attributes[7].nodeValue=document.getElementById('customFile').attributes[7].nodeValue.replace("C:\\fakepath\\",""));
+// console.log(document.getElementById('customFile'))
+ //  console.log(this.image.replace("C:\\fakepath\\",""));
 }
+
+
+
 }
 

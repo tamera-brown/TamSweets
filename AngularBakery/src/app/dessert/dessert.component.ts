@@ -11,6 +11,7 @@ export class DessertComponent implements OnInit {
 
   @Input() dessert:Dessert;
 
+  alreadyInCart:boolean;
 
   constructor(private service:BakeryService) { }
 
@@ -27,6 +28,8 @@ export class DessertComponent implements OnInit {
       this.service.buyDessert(dessertId).subscribe((_)=>{
         window.location.reload();
       
+      },(err)=>{
+          this.alreadyInCart=true;
       });
     }
       
