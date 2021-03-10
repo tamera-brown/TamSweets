@@ -32,7 +32,7 @@
     <!-- Quantity Column -->
     <ng-container matColumnDef="quantity">
       <th mat-header-cell *matHeaderCellDef> Quantity </th>
-      <td mat-cell *matCellDef="let element"> <input matInput type="number" min="1" value="quantity" [(ngModel)]="quantity" /></td>
+      <td mat-cell *matCellDef="let element"> <input style="color: grey;" matInput type="number" min="1" [(ngModel)]="quantity" /></td>
     </ng-container>
 
      <!-- Total Price Column -->
@@ -86,5 +86,5 @@
         </table>
     </div>
 </div>
-  <button mat-raised-button color="primary">Checkout</button>
+  <button mat-raised-button color="primary" (click)="Checkout()">Checkout</button>
   

@@ -29,7 +29,7 @@ grandtotal:number=0;
 
 
 
-
+handler:any = null;
 
   constructor(private service:BakeryService) {
   
@@ -51,7 +51,7 @@ grandtotal:number=0;
 
     });
    
-    
+    this.loadStripe();
   }
   
   editOrder(orderId){
@@ -93,4 +93,49 @@ grandtotal:number=0;
     window.print();
   } 
 
+  Checkout() {    
+ 
+    var handler = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_aeUUjYYcx4XNfKVW60pmHTtI',
+      locale: 'auto',
+      token: function (token: any) {
+        // You can access the token ID with `token.id`.
+        // Get the token ID to your server-side code for use.
+        console.log(token)
+        alert('Token Created!!');
+      }
+    });
+ 
+    handler.open({
+      name: 'Payment',
+      description: 'Thank you for your business',
+      amount: this.grandtotal * 100
+    });
+ 
+  }
+ 
+  loadStripe() {
+     
+    if(!window.document.getElementById('stripe-script')) {
+      var s = window.document.createElement("script");
+      s.id = "stripe-script";
+      s.type = "text/javascript";
+      s.src = "https://checkout.stripe.com/checkout.js";
+      s.onload = () => {
+        this.handler = (<any>window).StripeCheckout.configure({
+          key: 'pk_test_aeUUjYYcx4XNfKVW60pmHTtI',
+          locale: 'auto',
+          token: function (token: any) {
+            // You can access the token ID with `token.id`.
+            // Get the token ID to your server-side code for use.
+            console.log(token)
+            alert('Payment Success!!');
+          }
+        });
+      }
+       
+      window.document.body.appendChild(s);
+    }
+  }
 }
+
