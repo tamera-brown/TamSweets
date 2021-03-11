@@ -1,5 +1,5 @@
 <div *ngIf="isLoading">
 <mat-spinner></mat-spinner>
 </div>
-<input type="text" [(ngModel)]="Name" > <button mat-raised-button color="primary" (click)="Search()">Search</button> 
+<input type="text" [(ngModel)]="Name" placeholder="Search for Dessert"> <button mat-raised-button color="primary" (click)="Search()">Search</button> 
 <app-dessert *ngFor="let dessert of desserts" [dessert]="dessert"></app-dessert>

@@ -8,8 +8,10 @@ mat-card{
      display: grid;
 
 }
-
-
+img{
+    width:400px;
+    height:400px;
+}
 .price{
     color:green;
 }

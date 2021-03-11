@@ -15,6 +15,7 @@ export class ViewOrdersComponent implements OnInit {
 
 
 @Input() orders: Order[]=[];
+
 displayedColumns: string[]=['image','name','price', 'quantity','action','totalprice'];
 
 dataSource:MatTableDataSource<Order>;

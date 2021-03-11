@@ -32,7 +32,7 @@
     <!-- Quantity Column -->
     <ng-container matColumnDef="quantity">
       <th mat-header-cell *matHeaderCellDef> Quantity </th>
-      <td mat-cell *matCellDef="let element"><input matInput type="number" style="background-color: grey;" min="1" [(ngModel)]="element.quantity"></td>
+      <td mat-cell *matCellDef="let order"><input matInput type="number" style="background-color: grey;" min="1" value="element.quantity" [(ngModel)]="order.quantity"></td>
     </ng-container>
 
      <!-- Total Price Column -->
