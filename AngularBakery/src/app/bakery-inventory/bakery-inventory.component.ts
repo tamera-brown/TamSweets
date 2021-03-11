@@ -10,6 +10,7 @@ import { Dessert } from '../interfaces/dessert';
 export class BakeryInventoryComponent implements OnInit {
   desserts:Dessert[];
   isLoading:boolean;
+  Name:string;
   constructor(private service : BakeryService) { }
 
   ngOnInit(): void {
@@ -18,5 +19,8 @@ export class BakeryInventoryComponent implements OnInit {
     }, (err)=>{
       this.isLoading=true;});
   }
-
+Search(){
+   console.log(this.Name);
+  this.service.getDessertByName(this.Name).subscribe();
+}
 }

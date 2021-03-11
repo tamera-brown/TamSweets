@@ -39,7 +39,8 @@ export class AddDessertComponent implements OnInit {
 
   addDessert(){
     let toAdd : Dessert = {name: this.name, description: this.description,price:this.price,image:this.image}
-     this.service.addDessert(toAdd).subscribe((_) => {this.router.navigate(['desserts'])});
+     this.service.addDessert(toAdd).subscribe((_) => {this.router.navigate(['desserts'])
+    });
   }
 
   change($event) {

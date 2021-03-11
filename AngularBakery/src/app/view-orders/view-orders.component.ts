@@ -13,6 +13,7 @@ import { Dessert } from '../interfaces/dessert';
 })
 export class ViewOrdersComponent implements OnInit {
 
+
 @Input() orders: Order[]=[];
 displayedColumns: string[]=['image','name','price', 'quantity','action','totalprice'];
 
@@ -31,7 +32,7 @@ grandtotal:number=0;
 
 handler:any = null;
 
-  constructor(private service:BakeryService) {
+  constructor(private service:BakeryService, private router: Router) {
   
    }
   
@@ -43,11 +44,11 @@ handler:any = null;
       for(let i=0; i<order.length;i++){
        
          this.subtotal+=order[i].totalPrice;
-         this.tax+=this.subtotal * 0.05;
-         this.grandtotal+=this.subtotal+this.tax;
+         
        
       }
-      
+         this.tax+=Math.round((this.subtotal * .05 + Number.EPSILON) * 100)/100;
+         this.grandtotal+=this.subtotal+this.tax;
 
     });
    
@@ -66,23 +67,19 @@ handler:any = null;
    
     let toedit={orderId:this.orderId,dessertId:this.dessertId,quantity:this.quantity,bagItem:this.bagItem,totalPrice:this.totalPrice}
    
-  this.service.editOrder(toedit).subscribe();
+  this.service.editOrder(toedit).subscribe((_=>{this.router.navigate(['orders'])
   window.location.reload();
+
+}));
+  
     }));
 
     
   }
-  Subtotal():number{
   
-    let subtotal=0;
-    for(let i=0; i<this.orders.length;i++){
-      subtotal+=this.orders[i].totalPrice;
-      console.log(this.subtotal);
-    }
-    return subtotal;
-  }
   deleteOrder(orderId){
     this.service.deleteOrder(orderId).subscribe((_)=>{
+      this.router.navigate(['orders']);
     window.location.reload();
       });
     }
@@ -91,18 +88,20 @@ handler:any = null;
    
   print(){
     window.print();
+    this.router.navigate(['orders']);
+    window.location.reload();
   } 
 
   Checkout() {    
  
     var handler = (<any>window).StripeCheckout.configure({
-      key: 'pk_test_aeUUjYYcx4XNfKVW60pmHTtI',
+      key: 'pk_test_51ITZClDyU2NZNBpu39F2IxzFjJ3GTuKXUkV6HE0DcfkUmSXGRhUtB5KgceRN5ZMOHE7A5FLDJgF5c2VaybBv0fTP009zx9V792',
       locale: 'auto',
       token: function (token: any) {
         // You can access the token ID with `token.id`.
         // Get the token ID to your server-side code for use.
         console.log(token)
-        alert('Token Created!!');
+        // alert('Token Created!!');
       }
     });
  
@@ -123,7 +122,7 @@ handler:any = null;
       s.src = "https://checkout.stripe.com/checkout.js";
       s.onload = () => {
         this.handler = (<any>window).StripeCheckout.configure({
-          key: 'pk_test_aeUUjYYcx4XNfKVW60pmHTtI',
+          key: 'pk_test_51ITZClDyU2NZNBpu39F2IxzFjJ3GTuKXUkV6HE0DcfkUmSXGRhUtB5KgceRN5ZMOHE7A5FLDJgF5c2VaybBv0fTP009zx9V792',
           locale: 'auto',
           token: function (token: any) {
             // You can access the token ID with `token.id`.

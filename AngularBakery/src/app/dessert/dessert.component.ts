@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BakeryService } from '../services/bakery.service';
 import { Dessert } from '../interfaces/dessert';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dessert',
@@ -13,7 +14,7 @@ export class DessertComponent implements OnInit {
 
   alreadyInCart:boolean;
 
-  constructor(private service:BakeryService) { }
+  constructor(private service:BakeryService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -21,12 +22,17 @@ export class DessertComponent implements OnInit {
   }
   deletDessert(dessertId){
     this.service.deleteDessert(dessertId).subscribe((_)=>{
+      {this.router.navigate(['desserts'])
       window.location.reload();
+    }
+    
     });
     }
     AddtoCart(dessertId){
       this.service.buyDessert(dessertId).subscribe((_)=>{
-        window.location.reload();
+        {this.router.navigate(['desserts'])
+      window.location.reload();
+  }
       
       },(err)=>{
           this.alreadyInCart=true;
