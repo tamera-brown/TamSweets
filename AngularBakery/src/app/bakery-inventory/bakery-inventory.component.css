@@ -3,7 +3,3 @@ app-dessert{
     display: inline-block;
    grid-template-columns: repeat(3,100px);
 }
-input,button{
-    float: right;
-    
-}

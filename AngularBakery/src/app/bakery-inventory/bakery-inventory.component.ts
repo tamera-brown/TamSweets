@@ -22,9 +22,10 @@ export class BakeryInventoryComponent implements OnInit {
   }
 Search(){
    
-  this.service.getDessertByName(this.Name).subscribe((_=>{
-    this.router.navigate(['desserts'])
-    window.location.reload()
+  this.service.getDessertByName(this.Name).subscribe((list=>{
+    this.desserts=list;
+    // this.router.navigate(['desserts'])
+    // window.location.reload()
   }));
 
 }

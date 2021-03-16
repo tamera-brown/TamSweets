@@ -21,8 +21,8 @@ return this.http.get<Dessert[]>(this.baseURL+"/desserts");
 getDessertById(dessertId:number):Observable<Dessert>{
   return this.http.get<Dessert>(this.baseURL+`/dessert/${dessertId}`);
 }
-getDessertByName(dessertName: string): Observable<Dessert>{
-  return this.http.get<Dessert>(this.baseURL+ `/dessert/name/${dessertName}`);
+getDessertByName(dessertName: string): Observable<Dessert[]>{
+  return this.http.get<Dessert[]>(this.baseURL+ `/dessert/name/${dessertName}`);
 }
 addDessert(tooAdd: Dessert):Observable<Dessert>{
   return this.http.post<Dessert>(this.baseURL+ "/addDessert",tooAdd,this.httpOptions);

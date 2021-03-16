@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { ContactService } from '../services/contact.service';
@@ -10,8 +9,9 @@ import { ContactService } from '../services/contact.service';
 export class ContactComponent implements OnInit {
 
 FormData: FormGroup;
+messageSent:boolean;
 
-  constructor(private http: HttpClient, private fb :FormBuilder, private contact: ContactService) { }
+  constructor(private fb :FormBuilder, private contact: ContactService) { }
 
   ngOnInit(): void {
     this.FormData = this.fb.group({
@@ -22,6 +22,11 @@ FormData: FormGroup;
     })
   }
 onSubmit(FormData){
-this.contact.PostMessage(FormData).subscribe();
+this.contact.PostMessage(FormData).subscribe((_)=>{
+  this.messageSent=true;
+}, (err)=>{
+  this.messageSent=false;
+});
 }
+
 }

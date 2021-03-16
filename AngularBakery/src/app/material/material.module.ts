@@ -13,6 +13,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 const MaterialComponents=[
@@ -30,7 +31,8 @@ ReactiveFormsModule,
 MatSidenavModule,
 FlexLayoutModule,
 MatTableModule,
-MatDialogModule
+MatDialogModule,
+MatPaginatorModule
 ]
 
 @NgModule({

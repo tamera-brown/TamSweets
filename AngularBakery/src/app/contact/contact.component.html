@@ -18,7 +18,11 @@
     </div>
     <button mat-raised-button color= "primary" type="submit" class="btn btn-primary" [disabled]="!FormData.valid">Submit</button>
     </form>
+    <div *ngIf="messageSent">
+        <p>Thank you for contacting us! </p>
     </div>
+    </div>
+    
     
     <div class="contactinfo">
         <a href="tel://204-635-2147">
