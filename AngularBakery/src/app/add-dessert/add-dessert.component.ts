@@ -38,7 +38,7 @@ export class AddDessertComponent implements OnInit {
   }
 
   addDessert(){
-    let toAdd : Dessert = {name: this.name, description: this.description,price:this.price,image:this.image}
+    let toAdd : Dessert = {name: this.name, description: this.description,price:this.price,image:this.image.replace("C:\\fakepath\\","../../assets/")}
      this.service.addDessert(toAdd).subscribe((_) => {this.router.navigate(['desserts'])
     });
   }
@@ -62,8 +62,8 @@ export class AddDessertComponent implements OnInit {
         // alert('File Successfully Uploaded'); 
         
         
-        this.image= "./src/assets/" +this.currentFileUpload.name;
-      
+        // this.image= "../../assets/" +this.currentFileUpload.name;
+    
       }
   
       
