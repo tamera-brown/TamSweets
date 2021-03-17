@@ -49,6 +49,7 @@ export class AddDessertComponent implements OnInit {
 
   changedImage(event) {
     this.selectedFile = event.target.files[0];
+    
   }
   
   upload() {
@@ -60,7 +61,7 @@ export class AddDessertComponent implements OnInit {
         this.progress.percentage = Math.round(100 * event.loaded / event.total);
       } else if (event instanceof HttpResponse) {
         // alert('File Successfully Uploaded'); 
-        
+       
         
         // this.image= "../../assets/" +this.currentFileUpload.name;
     
@@ -94,6 +95,7 @@ export class AddDessertComponent implements OnInit {
     }
     //console.log(this.url);
     this.selectedFiles = event.target.files; 
+    
   //  console.log(document.getElementById('customFile').attributes[7].nodeValue=document.getElementById('customFile').attributes[7].nodeValue.replace("C:\\fakepath\\",""));
   // console.log(document.getElementById('customFile'))
    //  console.log(this.image.replace("C:\\fakepath\\",""));

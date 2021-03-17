@@ -14,6 +14,11 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+
+
 
 
 const MaterialComponents=[
@@ -32,7 +37,9 @@ MatSidenavModule,
 FlexLayoutModule,
 MatTableModule,
 MatDialogModule,
-MatPaginatorModule
+MatPaginatorModule,
+MatStepperModule,
+MatDatepickerModule
 ]
 
 @NgModule({

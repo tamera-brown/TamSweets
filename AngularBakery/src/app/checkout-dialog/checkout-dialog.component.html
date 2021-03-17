@@ -1,0 +1,36 @@
+
+<mat-horizontal-stepper linear #stepper>
+    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Customer Information</ng-template>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" placeholder="Email" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput type="text" formControlName="First_Name" placeholder="First Name" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" formControlName="Last_Name" placeholder="Last Name" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="tel" formControlName="Phone_Num" placeholder="Phone Number" required>
+          </mat-form-field>
+        <div>
+          <button mat-button (click)="Checkout()" [disabled]="!firstFormGroup.valid" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    
+    <mat-step>
+      <ng-template matStepLabel>Payment</ng-template>
+      
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>

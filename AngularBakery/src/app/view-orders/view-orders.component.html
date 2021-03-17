@@ -54,11 +54,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
 
-    
-    <mat-paginator [length]="100"
-    [pageSize]="10"
-    [pageSizeOptions]="[5, 10, 25, 100]">
-</mat-paginator>
+   
   
   </table>
   <div class="row">
@@ -93,5 +89,5 @@
         </table> 
     </div>
  </div>
-  <button mat-raised-button color="primary" (click)="Checkout()">Checkout</button>
+  <button mat-raised-button color="primary" (click)="openDialog()">Checkout</button>
   

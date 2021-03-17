@@ -51,7 +51,7 @@ export class EditDessertComponent implements OnInit {
   }  
  
 editDessert(){
-let toedit={dessertId:this.dessertId,name:this.name,description:this.description,price:this.price,image:this.image}
+let toedit={dessertId:this.dessertId,name:this.name,description:this.description,price:this.price,image:this.image.replace("C:\\fakepath\\","../../assets/")}
 this.service.editDessert(toedit).subscribe((res) => {this.router.navigate(['desserts'])});
 
 
@@ -73,7 +73,7 @@ upload() {
       this.progress.percentage = Math.round(100 * event.loaded / event.total);
     } else if (event instanceof HttpResponse) {
       // alert('File Successfully Uploaded');  
-      this.image= "./src/assets/" +this.currentFileUpload.name;
+      
     
     }
 

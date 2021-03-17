@@ -4,6 +4,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import { BakeryService } from '../services/bakery.service';
 import { Router } from '@angular/router';
 import { Dessert } from '../interfaces/dessert';
+import { MatDialog } from '@angular/material/dialog';
+import { CheckoutDialogComponent } from '../checkout-dialog/checkout-dialog.component';
 
 
 @Component({
@@ -25,15 +27,15 @@ dessertId:number;
 quantity:number;
 bagItem:Dessert;
 totalPrice:number;
-subtotal:number=0;
-tax:number=0;
-grandtotal:number=0;
+subtotal:number=0.00;
+tax:number=0.00;
+grandtotal:number=0.00;
 
 
 
-handler:any = null;
 
-  constructor(private service:BakeryService, private router: Router) {
+
+  constructor(private service:BakeryService, private router: Router, public dialog: MatDialog) {
   
    }
   
@@ -48,12 +50,12 @@ handler:any = null;
          
        
       }
-         this.tax+=Math.round((this.subtotal * .05 + Number.EPSILON) * 100)/100;
+         this.tax+=Math.round((this.subtotal * .05 + Number.EPSILON) * 100)/100.;
          this.grandtotal+=this.subtotal+this.tax;
 
     });
    
-    this.loadStripe();
+  
   }
   
   editOrder(orderId){
@@ -93,49 +95,11 @@ handler:any = null;
     window.location.reload();
   } 
 
-  Checkout() {    
  
-    var handler = (<any>window).StripeCheckout.configure({
-      key: 'pk_test_51ITZClDyU2NZNBpu39F2IxzFjJ3GTuKXUkV6HE0DcfkUmSXGRhUtB5KgceRN5ZMOHE7A5FLDJgF5c2VaybBv0fTP009zx9V792',
-      locale: 'auto',
-      token: function (token: any) {
-        // You can access the token ID with `token.id`.
-        // Get the token ID to your server-side code for use.
-        console.log(token)
-        // alert('Token Created!!');
-      }
+  openDialog() {
+    const dialogRef = this.dialog.open(CheckoutDialogComponent,{
+      data:{grandtotal:this.grandtotal}
     });
- 
-    handler.open({
-      name: 'Payment',
-      description: 'Thank you for your business',
-      amount: this.grandtotal * 100
-    });
- 
-  }
- 
-  loadStripe() {
-     
-    if(!window.document.getElementById('stripe-script')) {
-      var s = window.document.createElement("script");
-      s.id = "stripe-script";
-      s.type = "text/javascript";
-      s.src = "https://checkout.stripe.com/checkout.js";
-      s.onload = () => {
-        this.handler = (<any>window).StripeCheckout.configure({
-          key: 'pk_test_51ITZClDyU2NZNBpu39F2IxzFjJ3GTuKXUkV6HE0DcfkUmSXGRhUtB5KgceRN5ZMOHE7A5FLDJgF5c2VaybBv0fTP009zx9V792',
-          locale: 'auto',
-          token: function (token: any) {
-            // You can access the token ID with `token.id`.
-            // Get the token ID to your server-side code for use.
-            console.log(token)
-            alert('Payment Success!!');
-          }
-        });
-      }
-       
-      window.document.body.appendChild(s);
-    }
   }
 }
 

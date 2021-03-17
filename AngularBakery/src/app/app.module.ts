@@ -14,6 +14,8 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material/material.module';
 import { ContactComponent } from './contact/contact.component';
 import { ViewOrdersComponent } from './view-orders/view-orders.component';
+import { CheckoutDialogComponent } from './checkout-dialog/checkout-dialog.component';
+
 
 
 @NgModule({
@@ -28,10 +30,8 @@ import { ViewOrdersComponent } from './view-orders/view-orders.component';
     BakeryInventoryComponent,
     ContactComponent,
     ViewOrdersComponent,
+    CheckoutDialogComponent
     
-    
-    
-   
    
   ],
   imports: [

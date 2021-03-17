@@ -17,18 +17,18 @@
     <input matInput type="text" [(ngModel)]="price" required>
   </mat-form-field>
   <br />
-  <mat-form-field appearance="fill" floatLbel='auto'>
+  <!-- <mat-form-field appearance="fill" floatLbel='auto'>
     <mat-label>Image</mat-label>
     <input matInput type="text"[(ngModel)]="image" required>
   </mat-form-field>
-  <br/>
+  <br/> -->
 
-  <!-- <mat-label>Image</mat-label>
-  <input type="file" id="customFile" (change)="selectFile($event)" (click)="upload()" accept="image/*" [(ngModel)]="image"/>
+  <mat-label>Image</mat-label>
+  <input type="file" id="customFile" (change)="selectFile($event)" accept="image/*" [(ngModel)]="image"/>
   
- <img [src]="url" height="200px">
+ <img [src]="image" height="200px">
 
-  <br /> -->
-  <button mat-raised-button color="primary" (click)="editDessert()">Submit</button>
+  <br />
+  <button mat-raised-button color="primary" (click)="upload()" (click)="editDessert()" >Submit</button>
 </mat-card-content>
 </mat-card>
