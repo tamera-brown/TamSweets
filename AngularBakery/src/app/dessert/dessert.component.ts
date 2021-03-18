@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BakeryService } from '../services/bakery.service';
 import { Dessert } from '../interfaces/dessert';
 import { Router } from '@angular/router';
+import { Order } from '../interfaces/order';
 
 @Component({
   selector: 'app-dessert',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class DessertComponent implements OnInit {
 
   @Input() dessert:Dessert;
+   quantity:number;
 
   alreadyInCart:boolean;
 
@@ -29,7 +31,8 @@ export class DessertComponent implements OnInit {
     });
     }
     AddtoCart(dessertId){
-      this.service.buyDessert(dessertId).subscribe((_)=>{
+      let added:Order={quantity:this.quantity};
+      this.service.buyDessert(dessertId,added).subscribe((_)=>{
         {this.router.navigate(['desserts'])
       window.location.reload();
   }

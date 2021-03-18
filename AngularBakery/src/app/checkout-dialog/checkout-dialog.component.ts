@@ -1,7 +1,7 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Order } from '../interfaces/order';
+
 
 @Component({
   selector: 'app-checkout-dialog',
@@ -9,9 +9,8 @@ import { Order } from '../interfaces/order';
   styleUrls: ['./checkout-dialog.component.css']
 })
 export class CheckoutDialogComponent implements OnInit {
-
-
-
+  
+  isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   isEditable = false;

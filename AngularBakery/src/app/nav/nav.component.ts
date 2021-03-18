@@ -9,14 +9,16 @@ import { Order } from '../interfaces/order';
 })
 export class NavComponent implements OnInit {
   orders:Order[]
-  items:number
+  items:number=0;
   constructor(private service:BakeryService) { }
 
   ngOnInit(): void {
     this.service.getAllOrders().subscribe(list => {
       this.orders = list
-      this.items=list.length;
-      console.log(this.items)
+      for(let i =0;i <list.length;i++){
+        this.items+=list[i].quantity;
+          }
+     
     });
   }
   }

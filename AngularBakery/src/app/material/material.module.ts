@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {MatNativeDateModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
@@ -15,7 +16,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDatepickerModule}from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -39,7 +41,9 @@ MatTableModule,
 MatDialogModule,
 MatPaginatorModule,
 MatStepperModule,
-MatDatepickerModule
+MatDatepickerModule,
+MatNativeDateModule,
+MatSelectModule
 ]
 
 @NgModule({

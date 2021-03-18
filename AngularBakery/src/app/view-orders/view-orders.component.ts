@@ -15,12 +15,7 @@ import { CheckoutDialogComponent } from '../checkout-dialog/checkout-dialog.comp
 })
 export class ViewOrdersComponent implements OnInit {
 
-
-@Input() orders: Order[]=[];
-
-displayedColumns: string[]=['image','name','price', 'quantity','action','totalprice'];
-
-dataSource:MatTableDataSource<Order>;
+orders:Order[];
 
 orderId:number;
 dessertId:number;
@@ -42,7 +37,7 @@ grandtotal:number=0.00;
   ngOnInit(): void {
     this.service.getAllOrders().subscribe(order=>{
 
-      this.dataSource= new MatTableDataSource(order);
+      // this.dataSource= new MatTableDataSource(order);
     
       for(let i=0; i<order.length;i++){
        
@@ -55,7 +50,7 @@ grandtotal:number=0.00;
 
     });
    
-  
+  this.service.getAllOrders().subscribe((data:Order[])=>{this.orders=data})
   }
   
   editOrder(orderId){
@@ -64,14 +59,14 @@ grandtotal:number=0.00;
     this.orderId=res.orderId;
     this.dessertId=res.dessertId;
     this.bagItem=res.bagItem;
-    this.totalPrice=res.totalPrice;
+    
 
 
    
     let toedit={orderId:this.orderId,dessertId:this.dessertId,quantity:this.quantity,bagItem:this.bagItem,totalPrice:this.totalPrice}
    
   this.service.editOrder(toedit).subscribe((_=>{this.router.navigate(['orders'])
-  window.location.reload();
+
 
 }));
   
@@ -87,14 +82,19 @@ grandtotal:number=0.00;
       });
     }
    
+    Change(quantity){
 
+      this.quantity=quantity;
+      
+    }
    
   print(){
     window.print();
     this.router.navigate(['orders']);
     window.location.reload();
   } 
-
+  
+  
  
   openDialog() {
     const dialogRef = this.dialog.open(CheckoutDialogComponent,{

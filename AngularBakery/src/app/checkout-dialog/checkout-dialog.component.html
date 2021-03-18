@@ -1,36 +1,53 @@
-
-<mat-horizontal-stepper linear #stepper>
-    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Customer Information</ng-template>
-        <mat-form-field>
-          <mat-label>Email</mat-label>
-          <input matInput type="email" formControlName="email" placeholder="Email" required>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Customer Information</ng-template>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="Email" required>
+      </mat-form-field>
+      <br/>
+      <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput type="text" formControlName="First_Name" placeholder="First Name" required>
         </mat-form-field>
+        <br/>
         <mat-form-field>
-            <mat-label>First Name</mat-label>
-            <input matInput type="text" formControlName="First_Name" placeholder="First Name" required>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Last Name</mat-label>
-            <input matInput type="text" formControlName="Last_Name" placeholder="Last Name" required>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Phone Number</mat-label>
-            <input matInput type="tel" formControlName="Phone_Num" placeholder="Phone Number" required>
-          </mat-form-field>
-        <div>
-          <button mat-button (click)="Checkout()" [disabled]="!firstFormGroup.valid" matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    
-    <mat-step>
-      <ng-template matStepLabel>Payment</ng-template>
-      
+          <mat-label>Last Name</mat-label>
+          <input matInput type="text" formControlName="Last_Name" placeholder="Last Name" required>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <mat-label>Phone Number</mat-label>
+          <input matInput type="tel" formControlName="Phone_Num" placeholder="Phone Number" required>
+        </mat-form-field>
+      <div>
+        <button mat-button [disabled]="!firstFormGroup.valid" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Pickup Time</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="Date" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button matStepperNext [disabled]="!secondFormGroup.valid" (click)="Checkout()">Next</button>
       </div>
-    </mat-step>
-  </mat-horizontal-stepper>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Payment</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
