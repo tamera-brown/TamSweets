@@ -18,6 +18,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDatepickerModule}from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 
@@ -43,7 +45,8 @@ MatPaginatorModule,
 MatStepperModule,
 MatDatepickerModule,
 MatNativeDateModule,
-MatSelectModule
+MatSelectModule,
+MatCheckboxModule
 ]
 
 @NgModule({

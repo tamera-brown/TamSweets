@@ -1,4 +1,4 @@
-<button mat-raised-button color="primary" (click)="print()">Print</button>
+<button mat-button color="primary" (click)="print()">Print</button>
 <table class="table">
   <thead>
     <tr>
@@ -22,6 +22,12 @@
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
       </select>
 
   </td>
@@ -48,12 +54,12 @@
                 </tr>
                 <tr>
                     <td class="left">
-                        <strong class="text-dark">Taxes(5%)</strong>
+                        <strong class="text-dark">Taxes(6%)</strong>
                         
                     </td>
                     <td class="right">${{tax}}</td>
                 </tr>
-              
+
                 <tr>
                     <td class="left">
                         <strong class="text-dark">Grand Total:</strong> </td>
@@ -61,9 +67,11 @@
                         <strong class="text-dark">${{grandtotal}}</strong>
                     </td>
                 </tr>
+              
             </tbody>
            
         </table> 
+       
     </div>
  </div>
   <button mat-raised-button color="primary" (click)="openDialog()">Checkout</button>

@@ -20,7 +20,13 @@
         <mat-form-field>
           <mat-label>Phone Number</mat-label>
           <input matInput type="tel" formControlName="Phone_Num" placeholder="Phone Number" required>
+         
         </mat-form-field>
+        <br/>
+        <small>You will recieve text messages reguarding your order</small> 
+        <section class="example-section">
+          <mat-checkbox class="example-margin">Join Our Mailing List</mat-checkbox>
+          </section>
       <div>
         <button mat-button [disabled]="!firstFormGroup.valid" matStepperNext>Next</button>
       </div>
@@ -28,13 +34,19 @@
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Pickup Time</ng-template>
+      <ng-template matStepLabel>Pickup Date & Time</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="Date" required>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
+      <br/>
+      <mat-form-field appearence="fill">
+        <input matInput type="time" formControlName="Time"required>
+      </mat-form-field>
+
+      
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext [disabled]="!secondFormGroup.valid" (click)="Checkout()">Next</button>
@@ -43,10 +55,10 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Payment</ng-template>
-    <p>You are now done.</p>
+    
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      
     </div>
   </mat-step>
 </mat-horizontal-stepper>

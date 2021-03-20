@@ -30,6 +30,7 @@ grandtotal:number=0.00;
 
 
 
+
   constructor(private service:BakeryService, private router: Router, public dialog: MatDialog) {
   
    }
@@ -37,7 +38,7 @@ grandtotal:number=0.00;
   ngOnInit(): void {
     this.service.getAllOrders().subscribe(order=>{
 
-      // this.dataSource= new MatTableDataSource(order);
+     
     
       for(let i=0; i<order.length;i++){
        
@@ -45,8 +46,15 @@ grandtotal:number=0.00;
          
        
       }
-         this.tax+=Math.round((this.subtotal * .05 + Number.EPSILON) * 100)/100.;
-         this.grandtotal+=this.subtotal+this.tax;
+         this.tax+=Math.round((this.subtotal * .06 + Number.EPSILON) * 100)/100;
+         
+        
+           this.grandtotal+=this.subtotal+this.tax;
+        
+        
+         
+        
+
 
     });
    
@@ -65,7 +73,9 @@ grandtotal:number=0.00;
    
     let toedit={orderId:this.orderId,dessertId:this.dessertId,quantity:this.quantity,bagItem:this.bagItem,totalPrice:this.totalPrice}
    
-  this.service.editOrder(toedit).subscribe((_=>{this.router.navigate(['orders'])
+  this.service.editOrder(toedit).subscribe((_=>{
+    this.router.navigate(['orders'])
+    window.location.reload();
 
 
 }));

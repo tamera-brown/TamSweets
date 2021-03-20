@@ -1,7 +1,9 @@
 mat-card{
     
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 400px;
+    max-width: 300px;
+    margin-top: 55px;
+    margin-left: 15px;
 
   text-align: center;
 
@@ -9,9 +11,10 @@ mat-card{
 
 }
 img{
-    width:400px;
-    height:400px;
+    width:300px;
+    height:300px;
 }
 .price{
     color:rgb(47, 230, 47);
 }
+

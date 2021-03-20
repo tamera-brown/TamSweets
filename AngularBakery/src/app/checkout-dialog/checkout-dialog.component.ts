@@ -27,7 +27,8 @@ export class CheckoutDialogComponent implements OnInit {
       Phone_Num:['',Validators.required]
     });
     this.secondFormGroup = this.fb.group({
-      Date: ['', Validators.required]
+      Date: ['', Validators.required],
+      Time:['',Validators.required]
     });
     this.loadStripe();
   }
