@@ -27,7 +27,7 @@ public class PostgresOrderDAO implements OrderDAO {
                 "from \"Orders\" as o\n" +
                 "join \"DessertsHelper\" as dh\n" +
                 "on o.\"dessertId\"=dh.\"dessertId\"\n" +
-                "group by o.\"orderId\",dh.\"dessertName\",dh.\"dessertDescription\",  dh.\"dessertPrice\", dh.\"dessertImg\" order by \"orderId\" desc", new OrderMapper());
+                "group by o.\"orderId\",dh.\"dessertName\",dh.\"dessertDescription\",  dh.\"dessertPrice\", dh.\"dessertImg\" order by \"orderId\";", new OrderMapper());
 
         for(Order order :orders){
             order.setBagItem(getDessertById(order.getDessertId()));
