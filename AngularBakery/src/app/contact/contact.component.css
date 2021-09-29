@@ -1,4 +1,10 @@
-contactinfo{
+@import "@tomtom-international/web-sdk-maps";
+
+.contactinfo{
     display: inline-block;
 
+}
+#map{
+    width:520px;
+    height:400px; 
 }

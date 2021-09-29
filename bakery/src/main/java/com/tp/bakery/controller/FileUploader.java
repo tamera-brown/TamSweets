@@ -18,7 +18,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class FileUploader {
     List<String> files = new ArrayList<String>();
-    private final Path rootLocation = Paths.get("/Users/tamerabrown/Desktop/Bakery-Frontend/AngularBakery/src/assets");
+    private final Path rootLocation = Paths.get("/Users/Tam/Desktop/Bakery-Frontend/AngularBakery/src/assets");
 
     @PostMapping("/savefile")
     public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) {
