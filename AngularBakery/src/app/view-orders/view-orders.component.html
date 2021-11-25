@@ -32,7 +32,7 @@
 
   </td>
       <td><button mat-raised-button (click)="deleteOrder(order.orderId)" color="primary"><mat-icon>remove_circle</mat-icon></button>
-        <td>${{order.totalPrice}}</td>
+        <td>${{order.totalPrice | number : '1.2-2'}}</td>
     </tr>
    
   </tbody>
@@ -50,21 +50,21 @@
                     <td class="left">
                         <strong class="text-dark">Subtotal</strong>
                     </td>
-                    <td class="right">${{subtotal}}</td>
+                    <td class="right">${{subtotal | number : '1.2-2'}}</td>
                 </tr>
                 <tr>
                     <td class="left">
                         <strong class="text-dark">Taxes(6%)</strong>
                         
                     </td>
-                    <td class="right">${{tax}}</td>
+                    <td class="right">${{tax | number : '1.2-2'}}</td>
                 </tr>
 
                 <tr>
                     <td class="left">
                         <strong class="text-dark">Grand Total:</strong> </td>
                     <td class="right" style="color: green;">
-                        <strong class="text-dark">${{grandtotal}}</strong>
+                        <strong class="text-dark">${{grandtotal | number : '1.2-2'}}</strong>
                     </td>
                 </tr>
               
@@ -74,5 +74,5 @@
        
     </div>
  </div>
-  <button mat-raised-button color="primary" (click)="openDialog()">Checkout</button>
+  <button mat-raised-button color="primary" (click)="openDialog()">Proceed to checkout ({{items}} items)</button>
   

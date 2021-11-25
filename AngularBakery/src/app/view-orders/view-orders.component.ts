@@ -25,7 +25,7 @@ totalPrice:number;
 subtotal:number=0.00;
 tax:number=0.00;
 grandtotal:number=0.00;
-
+items:number=0;
 
 
 
@@ -43,7 +43,7 @@ grandtotal:number=0.00;
       for(let i=0; i<order.length;i++){
        
          this.subtotal+=order[i].totalPrice;
-         
+         this.items+=order[i].quantity;
        
       }
          this.tax+=Math.round((this.subtotal * .06 + Number.EPSILON) * 100)/100;
