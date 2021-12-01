@@ -7,6 +7,7 @@ import { EditDessertComponent } from './edit-dessert/edit-dessert.component';
 import { HomeComponent } from './home/home.component'; import { MenusComponent } from './menus/menus.component';
 import { ViewOrdersComponent } from './view-orders/view-orders.component';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {path:'',redirectTo: 'home', pathMatch:'full'},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:"editDessert/:id",component:EditDessertComponent},
   {path:'contact', component:ContactComponent},
   {path:'orders',component:ViewOrdersComponent},
-  {path: 'login',component:LoginComponent}
+  {path: 'login',component:LoginComponent},
+  {path: 'signup',component:SignupComponent}
 
 ];
 

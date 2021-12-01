@@ -16,6 +16,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ViewOrdersComponent } from './view-orders/view-orders.component';
 import { CheckoutDialogComponent } from './checkout-dialog/checkout-dialog.component';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 
@@ -33,7 +34,8 @@ import { LoginComponent } from './login/login.component';
     ContactComponent,
     ViewOrdersComponent,
     CheckoutDialogComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
     
    
   ],

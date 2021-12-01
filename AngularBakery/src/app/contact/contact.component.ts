@@ -49,5 +49,7 @@ this.contact.PostMessage(FormData).subscribe((_)=>{
   this.messageSent=false;
 });
 }
-
+GetDirections(){
+  window.open('http://maps.google.com/maps?daddr=100+Century+Center+Ct+210,+San Jose,+CA+95112+United+States ')
+}
 }

@@ -1,10 +1,39 @@
 @import "@tomtom-international/web-sdk-maps";
 
-.contactinfo{
-    display: inline-block;
 
-}
-#map{
-    width:520px;
+ .contact-us #map{
+    width:100%;
     height:400px; 
+    overflow: hidden;
+    border-radius: 4px;
+}
+.contact-us {
+    padding: 70px 0px;
+    background: gray;
+}
+.section-title h2 {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    border-bottom: 5px solid #af8070;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+.section-title p {
+    color: #e8e8e8;
+    margin-bottom: 30px;
+}
+.contact-us input,
+.contact-us textarea {
+    background: #fafafa;
+}
+.contact-us textarea {
+    min-height: 188px;
+    max-width: 100%;
+}
+.contact-us .map {
+    overflow: hidden;
+    border-radius: 4px;
 }
