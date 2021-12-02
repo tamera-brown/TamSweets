@@ -32,4 +32,6 @@ public class BakeryApplication {
 		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
 		return bean;
 	}
+
+
 }

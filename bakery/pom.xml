@@ -38,6 +38,7 @@
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 			<version>2.4.2</version>
 		</dependency>
+
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -53,8 +54,6 @@
 			<artifactId>postgresql</artifactId>
 			<version>42.2.18</version>
 		</dependency>
-
-
 	</dependencies>
 
 	<build>
