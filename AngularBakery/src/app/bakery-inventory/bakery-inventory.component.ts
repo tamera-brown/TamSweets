@@ -3,6 +3,7 @@ import { BakeryService } from '../services/bakery.service';
 import { Dessert } from '../interfaces/dessert';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-bakery-inventory',
   templateUrl: './bakery-inventory.component.html',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class BakeryInventoryComponent implements OnInit {
   desserts:Dessert[];
   isLoading:boolean;
-  Name:string;
+  term:string;
   constructor(private service : BakeryService, private router:Router) { }
 
   ngOnInit(): void {
@@ -20,13 +21,5 @@ export class BakeryInventoryComponent implements OnInit {
     }, (err)=>{
       this.isLoading=true;});
   }
-Search(){
-   
-  this.service.getDessertByName(this.Name).subscribe((list=>{
-    this.desserts=list;
-    // this.router.navigate(['desserts'])
-    // window.location.reload()
-  }));
 
-}
 }

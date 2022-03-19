@@ -17,6 +17,9 @@ import { ViewOrdersComponent } from './view-orders/view-orders.component';
 import { CheckoutDialogComponent } from './checkout-dialog/checkout-dialog.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { DessertFilterPipe } from './dessert-filter.pipe';
+
+
 
 
 
@@ -35,7 +38,9 @@ import { SignupComponent } from './signup/signup.component';
     ViewOrdersComponent,
     CheckoutDialogComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    DessertFilterPipe,
+    
     
    
   ],

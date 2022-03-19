@@ -6,4 +6,5 @@ app-dessert{
 .SearchBar{
     margin-top: 15px;
     margin-left: 1000px;
+    width: 100%;
 }
