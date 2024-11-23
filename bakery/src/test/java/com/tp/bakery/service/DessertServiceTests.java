@@ -79,7 +79,7 @@ public class DessertServiceTests {
             assertEquals(17.00,validate2.getPrice());
 
 
-        } catch (NullDessertObjectException | NullDessertDescriptionException | NulllDessertNameException | InvaildDessertIdException | NullDessertIdException | InvalidDessertPriceException | InvalidDessertNameException | InvalidDessertDescriptionException | InvalidDessertImageException e) {
+        } catch (NullDessertObjectException | NullDessertDescriptionException | NullDessertNameException | InvaildDessertIdException | NullDessertIdException | InvalidDessertPriceException | InvalidDessertNameException | InvalidDessertDescriptionException | InvalidDessertImageException e) {
             fail();
 
         }
@@ -93,7 +93,7 @@ public class DessertServiceTests {
         Dessert test = new Dessert();
         test.setName(null);
         test.setDescription("Sweet Icing");
-        assertThrows(NulllDessertNameException.class,()->toTest.addDessert(test));
+        assertThrows(NullDessertNameException.class,()->toTest.addDessert(test));
     }
     @Test
     public void addDessertNullDescriptionTest(){

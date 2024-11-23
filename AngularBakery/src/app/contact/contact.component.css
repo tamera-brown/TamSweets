@@ -3,26 +3,25 @@
 
  .contact-us #map{
     width:100%;
-    height:400px; 
+    height:250px; 
     overflow: hidden;
     border-radius: 4px;
 }
 .contact-us {
-    padding: 70px 0px;
-    background: gray;
+    padding: 120px 0px;
+
 }
 .section-title h2 {
-    color: #ffffff;
+    color: black;
     font-size: 30px;
     font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 8px;
-    border-bottom: 5px solid #af8070;
     padding-bottom: 10px;
     display: inline-block;
 }
 .section-title p {
-    color: #e8e8e8;
+    color: black;
     margin-bottom: 30px;
 }
 .contact-us input,
@@ -30,7 +29,7 @@
     background: #fafafa;
 }
 .contact-us textarea {
-    min-height: 188px;
+    min-height: 300px;
     max-width: 100%;
 }
 .contact-us .map {

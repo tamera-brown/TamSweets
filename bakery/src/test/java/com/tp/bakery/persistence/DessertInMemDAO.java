@@ -26,13 +26,13 @@ public class DessertInMemDAO implements DessertDAO {
     }
 
     @Override
-    public Dessert addDessert(Dessert dessert) throws NullDessertObjectException, NulllDessertNameException, NullDessertDescriptionException, InvalidDessertPriceException, InvalidDessertNameException, InvalidDessertDescriptionException, InvalidDessertImageException{
+    public Dessert addDessert(Dessert dessert) throws NullDessertObjectException, NullDessertNameException, NullDessertDescriptionException, InvalidDessertPriceException, InvalidDessertNameException, InvalidDessertDescriptionException, InvalidDessertImageException{
         Integer id = 0;
         if (dessert == null) {
             throw new NullDessertObjectException("Cannot add null dessert object");
         }
         if (dessert.getName() == null) {
-            throw new NulllDessertNameException("Cannot add dessert with null name");
+            throw new NullDessertNameException("Cannot add dessert with null name");
         }
         if (dessert.getDescription() == null) {
             throw new NullDessertDescriptionException("Cannot add a dessert with null description");

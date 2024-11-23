@@ -1,3 +1,4 @@
+<h1>Your Cart</h1>
 <button mat-button color="primary" (click)="print()">Print</button>
 <table class="table">
   <thead>
@@ -29,6 +30,7 @@
         <option value="9">9</option>
         <option value="10">10</option>
       </select>
+      x  ${{order.bagItem.price | number : '1.2-2'}}
 
   </td>
       <td><button mat-raised-button (click)="deleteOrder(order.orderId)" color="primary"><mat-icon>remove_circle</mat-icon></button>

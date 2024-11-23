@@ -45,7 +45,7 @@ public class DessertController {
             Dessert newDessert = service.addDessert(dessert);
            return ResponseEntity.ok(newDessert);
 
-        } catch (NullDessertPriceException | NullDessertDescriptionException | NulllDessertNameException | NullDessertObjectException | NullDessertImageException | InvalidDessertPriceException | InvalidDessertNameException | InvalidDessertDescriptionException | InvalidDessertImageException e) {
+        } catch (NullDessertPriceException | NullDessertDescriptionException | NullDessertNameException | NullDessertObjectException | NullDessertImageException | InvalidDessertPriceException | InvalidDessertNameException | InvalidDessertDescriptionException | InvalidDessertImageException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
 
@@ -55,7 +55,7 @@ public class DessertController {
         try {
             return service.editDessert(dessert);
 
-        } catch (NullDessertIdException | NullDessertObjectException | NulllDessertNameException | NullDessertDescriptionException | NullDessertPriceException | NullDessertImageException e) {
+        } catch (NullDessertIdException | NullDessertObjectException | NullDessertNameException | NullDessertDescriptionException | NullDessertPriceException | NullDessertImageException e) {
             return -1;
         }
     }

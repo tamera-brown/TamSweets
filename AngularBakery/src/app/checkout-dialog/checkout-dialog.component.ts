@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { loadStripe } from '@stripe/stripe-js';
 import { environment } from 'src/environments/environment';
+import { ShippingMethod } from '../shipping-method';
+
 
 
 
@@ -12,13 +14,42 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./checkout-dialog.component.css']
 })
 export class CheckoutDialogComponent implements OnInit {
-  
+  // date = new Date();
+  // shippingMethods: ShippingMethod[] = [
+
+  //   {
+  //     id: 1,
+  //     type: 'Standard Shipping',
+  //     price: 5.99,
+  //     arrival: {
+  //       max: this.date.toLocaleDateString()
+  //     }
+  //   },
+  //   {
+  //     id: 2,
+  //     type: 'FREE Shipping',
+  //     price: 0,
+  //     arrival: {
+  //       min: this.date.setDate(this.date.getDate() + 5),
+  //       max: this.date.setDate(this.date.getDate() + 7)
+  //     }
+  //   },
+  //   {
+  //     id: 3,
+  //     type: 'Two-Day Shipping',
+  //     price: 8.99,
+  //     arrival: {
+  //       max: this.date.setDate(this.date.getDate() + 2)
+  //     }
+  //   }
+  // ].sort((method1, method2) => method1.price - method2.price);
+  panelOpenState = false;
   isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   isEditable = false;
   handler:any = null;
-  stripePromise=loadStripe(environment.stripe_key)
+  stripePromise=loadStripe(environment.stripe_key);
   
   
   constructor(public dialogRef:MatDialogRef<CheckoutDialogComponent>,
@@ -26,18 +57,31 @@ export class CheckoutDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.firstFormGroup = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      // email: ['', [Validators.required, Validators.email]],
       First_Name:['',Validators.required],
-      Last_Name:['',Validators.required],
-      Phone_Num:['',Validators.required]
+      Last_Name:['', Validators.required],
+      Phone_Num:['',[Validators.pattern(/^\(\d{3}\)\s\d{3}-\d{4}$/), Validators.required]],
+      Address_1:['', Validators.required],
+      City:['', Validators.required],
+      State:['', Validators.required],
+      Country:['', Validators.required],
+      Postal_Code:['', Validators.required],
+      isShippingSame: [true, Validators.required]
     });
     this.secondFormGroup = this.fb.group({
-      Date: ['', Validators.required],
-      Time:['',Validators.required]
+      method: ['Standard Shipping'],
+      isAGift: [false],
+      giftOptions: this.fb.group({
+        includeGiftRecipt: [false],
+        name: [''],
+        message: [''],
+        wrap: [false]
+      })
     });
 
    
     this.loadStripe();
+
   }
   
  Checkout() {    

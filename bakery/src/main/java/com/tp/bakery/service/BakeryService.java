@@ -25,7 +25,7 @@ public class BakeryService {
         return Dessertdao.getAllDesserts();
     }
 
-    public Dessert addDessert(Dessert dessert) throws NullDessertObjectException, NulllDessertNameException, NullDessertDescriptionException, NullDessertPriceException, NullDessertImageException, InvalidDessertPriceException, InvalidDessertNameException, InvalidDessertDescriptionException, InvalidDessertImageException {
+    public Dessert addDessert(Dessert dessert) throws NullDessertObjectException, NullDessertNameException, NullDessertDescriptionException, NullDessertPriceException, NullDessertImageException, InvalidDessertPriceException, InvalidDessertNameException, InvalidDessertDescriptionException, InvalidDessertImageException {
         return Dessertdao.addDessert(dessert);
 
     }
@@ -35,7 +35,7 @@ public class BakeryService {
     }
 
 
-    public int editDessert( Dessert dessert) throws NullDessertIdException, NullDessertObjectException, NulllDessertNameException, NullDessertDescriptionException, NullDessertPriceException, NullDessertImageException {
+    public int editDessert( Dessert dessert) throws NullDessertIdException, NullDessertObjectException, NullDessertNameException, NullDessertDescriptionException, NullDessertPriceException, NullDessertImageException {
         return Dessertdao.editDessert(dessert);
     }
 

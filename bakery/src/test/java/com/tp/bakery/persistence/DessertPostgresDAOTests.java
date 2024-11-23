@@ -51,7 +51,7 @@ public class DessertPostgresDAOTests {
             assertEquals("Diced Pineapples in cream cheese icing", dessert.getDescription());
             assertEquals(16.00,dessert.getPrice());
             assertEquals("https://thestayathomechef.com/wp-content/uploads/2020/02/Pineapple-Upsidedown-Cake-7.jpg",dessert.getImage());
-        }catch (NullDessertObjectException | NulllDessertNameException | NullDessertDescriptionException | NullDessertIdException | NullDessertPriceException | NullDessertImageException | InvalidDessertPriceException e){
+        }catch (NullDessertObjectException | NullDessertNameException | NullDessertDescriptionException | NullDessertIdException | NullDessertPriceException | NullDessertImageException | InvalidDessertPriceException e){
             fail();
         }
 
@@ -68,7 +68,7 @@ public class DessertPostgresDAOTests {
         test.setDescription("Cake with Butter Cream Icing");
         test.setPrice(16.00);
         test.setImage("https://www.brit.co/media-library/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yMTg5MzEyNS9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTY3NTA0MzkyMn0.RSZCq8bh1oJdoe4FYxhd0MutXPsKy1CrWOF4T3Rb2l8/image.jpg?width=600&quality=85");
-        assertThrows(NulllDessertNameException.class,()->toTest.addDessert(test));
+        assertThrows(NullDessertNameException.class,()->toTest.addDessert(test));
     }
     @Test
     public void addDessertNullDescriptionTest(){
@@ -133,7 +133,7 @@ public class DessertPostgresDAOTests {
             assertEquals("https://www.thespruceeats.com/thmb/y9Sj9blj6uM14YUdM6FlZv2dhEI=/2667x2000/smart/filters:no_upscale()/piece-of-yellow-cake-with-vanilla-frosting-186880544-57eade013df78c690fe89768.jpg",toTest.getAllDesserts().get(0).getImage());
 
 
-        } catch (NullDessertIdException | NullDessertObjectException | NulllDessertNameException | NullDessertDescriptionException | NullDessertPriceException | NullDessertImageException e) {
+        } catch (NullDessertIdException | NullDessertObjectException | NullDessertNameException | NullDessertDescriptionException | NullDessertPriceException | NullDessertImageException e) {
             fail();
         }
     }
@@ -158,7 +158,7 @@ public class DessertPostgresDAOTests {
         test.setDescription("Good");
         test.setPrice(11.00);
         test.setImage("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-oreo-truffles-078-1544222424.jpg");
-        assertThrows(NulllDessertNameException.class,()->toTest.editDessert(test));
+        assertThrows(NullDessertNameException.class,()->toTest.editDessert(test));
     }
     @Test
     public void editDessertNullDescription(){

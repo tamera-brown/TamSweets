@@ -26,12 +26,12 @@ public class PostgresDessertDAO implements DessertDAO {
     }
 
     @Override
-    public Dessert addDessert(Dessert dessert) throws NullDessertObjectException, NulllDessertNameException, NullDessertDescriptionException, NullDessertPriceException, NullDessertImageException, InvalidDessertPriceException {
+    public Dessert addDessert(Dessert dessert) throws NullDessertObjectException, NullDessertNameException, NullDessertDescriptionException, NullDessertPriceException, NullDessertImageException, InvalidDessertPriceException {
         if (dessert == null) {
             throw new NullDessertObjectException("Cannot add null dessert object");
         }
         if (dessert.getName() == null) {
-            throw new NulllDessertNameException("Cannot add dessert with null name");
+            throw new NullDessertNameException("Cannot add dessert with null name");
         }
         if (dessert.getDescription() == null) {
             throw new NullDessertDescriptionException("Cannot add a dessert with null description");
@@ -67,7 +67,7 @@ public class PostgresDessertDAO implements DessertDAO {
     }
 
     @Override
-    public int editDessert(Dessert editdessert) throws NullDessertIdException, NullDessertObjectException, NullDessertDescriptionException, NulllDessertNameException, NullDessertPriceException, NullDessertImageException {
+    public int editDessert(Dessert editdessert) throws NullDessertIdException, NullDessertObjectException, NullDessertDescriptionException, NullDessertNameException, NullDessertPriceException, NullDessertImageException {
 
         if (editdessert == null) {
             throw new NullDessertObjectException("Cannot edit dessert with null dessert");
@@ -79,7 +79,7 @@ public class PostgresDessertDAO implements DessertDAO {
             throw new NullDessertDescriptionException("Cannot edit dessert with null description");
         }
         if (editdessert.getName() == null) {
-            throw new NulllDessertNameException("Cannot edit dessert with null name");
+            throw new NullDessertNameException("Cannot edit dessert with null name");
         }
         if (editdessert.getPrice() == null) {
             throw new NullDessertPriceException("Cannot edit dessert with null price");
